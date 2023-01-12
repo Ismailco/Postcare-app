@@ -1,7 +1,11 @@
 import React from 'react';
+import { NavBar, Footer } from './components';
 
-const App = () => {
-  return <p className="text-4xl">App</p>;
-};
+const App = () => (
+  <>
+    <NavBar />
+    <Footer />
+  </>
+);
 
 export default App;
