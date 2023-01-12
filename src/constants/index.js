@@ -1,4 +1,6 @@
-// This file and the constants folder are used to store all the static data and text used in the application for easy access and modification in the future.
+// This file and the constants folder are used
+// to store all the static data and text used in the application
+// for easy access and modification in the future.
 
 const AppName = 'PostOP';
 
