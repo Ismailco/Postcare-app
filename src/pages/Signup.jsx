@@ -3,7 +3,7 @@ import profile_pic from '../assets/img/profile.png';
 
 const Signup = () => (
   <div className="flex justify-center items-center w-full py-20">
-    <section className="rounded flex flex-col border border-[#111827] w-4/5 m-4 p-4">
+    <section className="rounded flex flex-col border border-[#111827] lg:w-1/3 w-4/5 m-4 p-4">
       <div className="flex flex-col justify-center items-center bg-[#F9FAFB]">
         <h1 className="font-bold text-2xl my-2">Sign up</h1>
         <p>Create an account</p>
