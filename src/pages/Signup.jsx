@@ -1,5 +1,6 @@
 import React from 'react';
 import profile_pic from '../assets/img/profile.png';
+import { footerLinksThree } from '../constants';
 
 const Signup = () => (
   <div className="flex justify-center items-center w-full py-20">
@@ -35,11 +36,11 @@ const Signup = () => (
 
       <p className="text-[#374151]">
         By signing up, you agree to our{' '}
-        <a href="#" className="underline">
+        <a href={footerLinksThree[0].path} className="underline">
           Terms of Conditions
         </a>{' '}
         and{' '}
-        <a href="#" className="underline">
+        <a href={footerLinksThree[1].path} className="underline">
           Privacy Policy
         </a>
       </p>
