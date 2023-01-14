@@ -2,7 +2,7 @@ import React from 'react';
 import { footerLinksOne, footerLinksTwo, footerLinksThree, copyRightText } from '../constants';
 
 const Footer = () => (
-  <footer className="w-full p-4 absolute bottom-0 bg-[#bbb] text-[#828282] font-medium">
+  <footer className="w-full p-4 bottom-0 bg-[#bbb] text-[#828282] font-medium">
     <div className="flex justify-center items-start">
       <div className="w-full">
         <img className="w-36 h-20 bg-gray-400" src="../assets/logo.png" alt="logo" />
