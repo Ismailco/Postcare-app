@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import profile_pic from '../assets/img/profile.png';
 import { footerLinksThree } from '../constants';
 
@@ -36,13 +37,13 @@ const Signup = () => (
 
       <p className="text-[#374151]">
         By signing up, you agree to our{' '}
-        <a href={footerLinksThree[0].path} className="underline">
+        <Link to={footerLinksThree[0].path} className="underline">
           Terms of Conditions
-        </a>{' '}
+        </Link>{' '}
         and{' '}
-        <a href={footerLinksThree[1].path} className="underline">
+        <Link to={footerLinksThree[0].path} className="underline">
           Privacy Policy
-        </a>
+        </Link>
       </p>
     </section>
   </div>

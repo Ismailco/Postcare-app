@@ -12,14 +12,14 @@ const Footer = () => (
       <ul className="flex flex-col mr-20 w-56">
         {footerLinksOne.map((link, index) => (
           <li className={`${index === 0 ? 'text-md my-2' : 'text-sm'} hover:text-dark `} key={index}>
-            <a href={link.path}>{link.name}</a>
+            <Link to={link.path}>{link.name}</Link>
           </li>
         ))}
       </ul>
       <ul className="flex flex-col mr-20 w-56">
         {footerLinksTwo.map((link, index) => (
           <li className={`${index === 0 ? 'text-md my-2' : 'text-sm'} hover:text-dark `} key={index}>
-            <a href={link.path}>{link.name}</a>
+            <Link to={link.path}>{link.name}</Link>
           </li>
         ))}
       </ul>
@@ -29,7 +29,7 @@ const Footer = () => (
       <ul className="flex flex-col md:flex-row">
         {footerLinksThree.map((link, index) => (
           <li className="mr-2 hover:text-light" key={index}>
-            <a href={link.path}>{link.name}</a>
+            <Link to={link.path}>{link.name}</Link>
           </li>
         ))}
       </ul>
