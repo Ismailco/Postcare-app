@@ -1,13 +1,14 @@
 import React from 'react';
 import { footerLinksOne, footerLinksTwo, footerLinksThree, copyRightText } from '../constants';
 import { whiteLogo } from '../assets/img';
+import { Link } from 'react-router-dom';
 
 const Footer = () => (
   <footer className="w-full leading-9 p-4 bottom-0 bg-primary text-dark md:text-white font-medium">
     <div className="flex flex-col md:flex-row justify-center font-bold items-start">
-      <div className="w-full">
+      <Link to="/" className="w-full">
         <img className="w-36 h-20 bg-gray-400" src={whiteLogo} alt="logo" />
-      </div>
+      </Link>
       <ul className="flex flex-col mr-20 w-56">
         {footerLinksOne.map((link, index) => (
           <li className={`${index === 0 ? 'text-md my-2' : 'text-sm'} hover:text-dark `} key={index}>

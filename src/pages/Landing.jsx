@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { hero } from '../assets/img';
 
 const Landing = () => (
@@ -7,8 +8,10 @@ const Landing = () => (
       <div className="w-4/5 my-4 md:w-1/3">
         <h1 className="text-4xl font-bold text-primary">We make it easier for patients to recover from surgery at home</h1>
         <div>
-          <button className="bg-primary text-white rounded-full py-2 px-4 mt-4 hover:bg-secondary">Get Started</button>
-          <button className="bg-secondary text-white rounded-full py-2 px-4 mt-4 ml-4 hover:bg-dark">Learn More</button>
+          <Link to="/signup">
+            <button className="bg-primary text-white rounded-full py-2 px-4 mt-4 hover:bg-accent-100">Get Started</button>
+          </Link>
+          <button className="bg-secondary text-white rounded-full py-2 px-4 mt-4 ml-4 hover:bg-accent-100">Learn More</button>
         </div>
       </div>
       <img className="w-96 border" src={hero} alt="landing" />
