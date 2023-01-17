@@ -9,9 +9,9 @@ const Landing = () => (
         <h1 className="text-4xl font-bold text-primary">We make it easier for patients to recover from surgery at home</h1>
         <div>
           <Link to="/signup">
-            <button className="bg-primary text-white rounded-full py-2 px-4 mt-4 hover:bg-accent-100">Get Started</button>
+            <button className="duration-500 bg-primary text-white rounded-full py-2 px-4 mt-4 hover:bg-accent-100">Get Started</button>
           </Link>
-          <button className="bg-secondary text-white rounded-full py-2 px-4 mt-4 ml-4 hover:bg-accent-100">Learn More</button>
+          <button className="duration-500 bg-secondary text-white rounded-full py-2 px-4 mt-4 ml-4 hover:bg-accent-100">Learn More</button>
         </div>
       </div>
       <img className="w-96 border" src={hero} alt="landing" />
