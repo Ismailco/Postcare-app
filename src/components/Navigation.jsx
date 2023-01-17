@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Navigation = () => (
-  <nav className="w-96 h-full fixed flex justify-start items-start bg-dark text-white">
+  <nav className="hidden w-96 md:flex justify-start items-start bg-dark text-white">
     <ul className="w-full flex flex-col justify-between items-between m-10 ">
       <li className="my-2 hover:bg-black p-4 rounded-md w-full">
         <a className="w-full" href="#">
