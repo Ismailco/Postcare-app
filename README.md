@@ -16,13 +16,6 @@
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
   - [🚀 Live Demo](#live-demo)
-- [💻 Getting Started](#getting-started)
-  - [Setup](#setup)
-  - [Prerequisites](#prerequisites)
-  - [Install](#install)
-  - [Usage](#usage)
-  - [Run tests](#run-tests)
-  - [Deployment](#triangular_flag_on_post-deployment)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
@@ -31,11 +24,15 @@
 - [❓ FAQ](#faq)
 - [📝 License](#license)
 
-<!-- PROJECT DESCRIPTION -->
-
 # 📖 Postcare App <a name="about-project"></a>
 
 > Describe your project in 1 or 2 sentences.
+
+<div align="center">
+
+  <img src="./app_screenshot.png" alt="screenshot" width="auto"  height="auto" />
+
+</div>
 
 ## 🛠 Built With <a name="built-with"></a>
 
