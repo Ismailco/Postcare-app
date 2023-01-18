@@ -132,5 +132,7 @@ const footerLinksThree = [
 const copyRightText = `© ${new Date().getFullYear()} ${AppName}. All rights reserved.`;
 
 export {
-  AppName, navLinks, navigationLinks, footerLinksOne, footerLinksTwo, footerLinksThree, copyRightText,
+  AppName, navLinks, navigationLinks,
+  footerLinksOne, footerLinksTwo, footerLinksThree,
+  copyRightText,
 };
