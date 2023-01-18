@@ -17,6 +17,29 @@ const navLinks = [
   },
 ];
 
+const navigationLinks = [
+  {
+    id: 1,
+    name: 'Dashboard',
+    path: '/dashboard',
+  },
+  {
+    id: 2,
+    name: 'Profile',
+    path: '/profile',
+  },
+  {
+    id: 3,
+    name: 'Messanger',
+    path: '/messanger',
+  },
+  {
+    id: 4,
+    name: 'To-Do List',
+    path: '/todo',
+  },
+];
+
 const footerLinksOne = [
   {
     id: 1,
@@ -109,5 +132,7 @@ const footerLinksThree = [
 const copyRightText = `© ${new Date().getFullYear()} ${AppName}. All rights reserved.`;
 
 export {
-  AppName, navLinks, footerLinksOne, footerLinksTwo, footerLinksThree, copyRightText,
+  AppName, navLinks, navigationLinks,
+  footerLinksOne, footerLinksTwo, footerLinksThree,
+  copyRightText,
 };

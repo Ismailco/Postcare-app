@@ -11,7 +11,7 @@ const NavBar = () => (
     </Link>
     <ul className="NavLinks flex">
       {navLinks.map((link, index) => (
-        <li className={`${index === navLinks.length - 1 ? 'mr-2 bg-secondary hover:bg-accent-100' : 'mr-4'} text-white rounded-full p-2`} key={index}>
+        <li className={`${index === navLinks.length - 1 ? 'mr-2 bg-secondary hover:bg-accent-100' : 'mr-4'} text-white rounded-full p-2 duration-500`} key={index}>
           <Link to={link.path}>{link.name}</Link>
         </li>
       ))}

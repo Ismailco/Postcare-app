@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Login = () => (
   <div className="flex justify-center items-center w-full py-28">
@@ -22,7 +23,7 @@ const Login = () => (
       </form>
 
       <p className="text-center">
-        <span className="text-[#6B7280]">Don't have an account?</span> <a href="/signup">Sign up</a>
+        <span className="text-[#6B7280]">Don't have an account?</span> <Link to="/signup">Sign up</Link>
       </p>
     </section>
   </div>
