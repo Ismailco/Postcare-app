@@ -11,7 +11,9 @@ const Landing = () => (
           <Link to="/signup">
             <button className="duration-500 bg-primary text-white rounded-full py-2 px-4 mt-4 hover:bg-accent-100">Get Started</button>
           </Link>
-          <button className="duration-500 bg-secondary text-white rounded-full py-2 px-4 mt-4 ml-4 hover:bg-accent-100">Learn More</button>
+          <Link to="/dashboard">
+            <button className="duration-500 bg-secondary text-white rounded-full py-2 px-4 mt-4 ml-4 hover:bg-accent-100">Learn More</button>
+          </Link>
         </div>
       </div>
       <img className="w-96 border" src={hero} alt="landing" />
