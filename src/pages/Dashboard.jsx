@@ -51,12 +51,24 @@ const Dashboard = () => (
         <table className="w-full border">
           <thead>
             <tr className="border appointments-cell">
-              <th className="border">Date</th>
-              <th className="border">Time</th>
-              <th className="border">Type</th>
-              <th className="border">Provider</th>
-              <th className="border">Location</th>
-              <th className="border">Status</th>
+              <th className="border">
+                <i className="fas fa-arrow-up-wide-short"></i> Date
+              </th>
+              <th className="border">
+                <i className="fas fa-arrow-up-wide-short"></i> Time
+              </th>
+              <th className="border">
+                <i className="fas fa-arrow-up-wide-short"></i> Type
+              </th>
+              <th className="border">
+                <i className="fas fa-arrow-up-wide-short"></i> Provider
+              </th>
+              <th className="border">
+                <i className="fas fa-arrow-up-wide-short"></i> Location
+              </th>
+              <th className="border">
+                <i className="fas fa-arrow-up-wide-short"></i> Status
+              </th>
             </tr>
           </thead>
           <tbody>
