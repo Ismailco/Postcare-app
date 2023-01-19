@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { profile } from '../assets/img/index';
 
 const Dashboard = () => (
-  <main className="flex flex-col m-6">
+  <main className="flex flex-col m-4 w-full">
     <section className="my-6">
       <h1 className="text-2xl font-bold mb-4">Welcome to Patient Portal Dashboard</h1>
       <p>Your secure, online, healthcare tracking site. Helping you manage your personal health information with your practices, anytime and anywhere.</p>
@@ -45,20 +45,21 @@ const Dashboard = () => (
         </div>
       </article>
     </section>
-    <section>
+    <section className="my-6 w-full">
       <h2 className="text-xl font-bold my-4">Appointments</h2>
-      <table className="w-full border">
-        <thead>
-          <tr className="border appointments-cell">
-            <th className="border">Date</th>
-            <th className="border">Time</th>
-            <th className="border">Type</th>
-            <th className="border">Provider</th>
-            <th className="border">Location</th>
-            <th className="border">Status</th>
-          </tr>
-        </thead>
-        <tbody>
+      <div className="overflow-x-scroll w-96 md:w-full">
+        <table className="w-full border">
+          <thead>
+            <tr className="border appointments-cell">
+              <th className="border">Date</th>
+              <th className="border">Time</th>
+              <th className="border">Type</th>
+              <th className="border">Provider</th>
+              <th className="border">Location</th>
+              <th className="border">Status</th>
+            </tr>
+          </thead>
+          <tbody>
           <tr className="appointments-cell">
             <td className="">12/12/2020</td>
             <td className="">12:00 PM</td>
@@ -84,7 +85,8 @@ const Dashboard = () => (
             <td className="">Past</td>
           </tr>
         </tbody>
-      </table>
+        </table>
+      </div>
     </section>
   </main>
 );

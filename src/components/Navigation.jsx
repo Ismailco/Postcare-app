@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { navigationLinks } from '../constants';
 
 const Navigation = () => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const toggleMenu = () => setOpen((prev) => !prev);
 
   return (
