@@ -60,31 +60,55 @@ const Dashboard = () => (
             </tr>
           </thead>
           <tbody>
-          <tr className="appointments-cell">
-            <td className="">12/12/2020</td>
-            <td className="">12:00 PM</td>
-            <td className="">Video Call - Follow Up</td>
-            <td className="">Jamie Smith, MD</td>
-            <td className="">Midelt, MA</td>
-            <td className="">Past</td>
-          </tr>
-          <tr className="appointments-cell">
-            <td className="">12/12/2020</td>
-            <td className="">12:00 PM</td>
-            <td className="">Video Call - Follow Up</td>
-            <td className="">Jamie Smith, MD</td>
-            <td className="">Midelt, MA</td>
-            <td className="">Past</td>
-          </tr>
-          <tr className="appointments-cell">
-            <td className="">12/12/2020</td>
-            <td className="">12:00 PM</td>
-            <td className="">Video Call - Follow Up</td>
-            <td className="">Jamie Smith, MD</td>
-            <td className="">Midelt, MA</td>
-            <td className="">Past</td>
-          </tr>
-        </tbody>
+            <tr className="appointments-cell">
+              <td className="">12/12/2020</td>
+              <td className="">12:00 PM</td>
+              <td className="">Video Call - Follow Up</td>
+              <td className="">Jamie Smith, MD</td>
+              <td className="">New York, US</td>
+              <td className="">Past</td>
+            </tr>
+            <tr className="appointments-cell">
+              <td className="">12/12/2020</td>
+              <td className="">12:00 PM</td>
+              <td className="">Video Call - Follow Up</td>
+              <td className="">Jamie Smith, MD</td>
+              <td className="">New York, US</td>
+              <td className="">Past</td>
+            </tr>
+            <tr className="appointments-cell">
+              <td className="">12/12/2020</td>
+              <td className="">12:00 PM</td>
+              <td className="">Video Call - Follow Up</td>
+              <td className="">Jamie Smith, MD</td>
+              <td className="">New York, US</td>
+              <td className="">Past</td>
+            </tr>
+            <tr className="appointments-cell">
+              <td className="">12/12/2020</td>
+              <td className="">12:00 PM</td>
+              <td className="">Video Call - Follow Up</td>
+              <td className="">Jamie Smith, MD</td>
+              <td className="">New York, US</td>
+              <td className="">Past</td>
+            </tr>
+            <tr className="appointments-cell">
+              <td className="">12/12/2020</td>
+              <td className="">12:00 PM</td>
+              <td className="">Video Call - Follow Up</td>
+              <td className="">Jamie Smith, MD</td>
+              <td className="">New York, US</td>
+              <td className="">Past</td>
+            </tr>
+            <tr className="appointments-cell">
+              <td className="">12/12/2020</td>
+              <td className="">12:00 PM</td>
+              <td className="">Video Call - Follow Up</td>
+              <td className="">Jamie Smith, MD</td>
+              <td className="">New York, US</td>
+              <td className="">Past</td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </section>
