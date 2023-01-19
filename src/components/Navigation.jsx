@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { navigationLinks } from '../constants';
 
 const Navigation = () => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const toggleMenu = () => setOpen((prev) => !prev);
 
   const toggleMenuMobile = () => {
@@ -11,6 +11,12 @@ const Navigation = () => {
       setOpen((prev) => !prev);
     }
   };
+
+  useEffect(() => {
+    if (window.innerWidth > 1030) {
+      setOpen(true);
+    }
+  }, []);
 
   return (
     <div className="hidden md:fixed top-0 md:min-h-full xl:static md:flex justify-start items-start bg-dark text-white">
