@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
+import { Daily, Weekly, Monthly } from '../components/Todos';
 
 const ToDoList = () => {
   const [activeBtn, setActiveBtn] = useState('daily-btn');
-  const [activeView, setActiveView] = useState('daily-view');
 
   const handleClick = (e) => {
     const { id } = e.target;
@@ -11,7 +11,7 @@ const ToDoList = () => {
 
   return (
     <main className="flex flex-col m-4 w-full">
-      <section className="m-4">
+      <section className="my-6">
         <h1 className="text-2xl font-bold mb-4">To Do List</h1>
         <p>Your secure, online, healthcare tracking site. Helping you manage your personal health information with your practices, anytime and anywhere.</p>
       </section>
@@ -27,9 +27,17 @@ const ToDoList = () => {
             Daily
           </button>
         </article>
-        <article className={`${activeBtn === 'daily-btn' ? 'flex ' : 'hidden'} justify-center items-center my-4 rounded-xl min-h-full w-full bg-dark`}>day</article>
-        <article className={`${activeBtn === 'weekly-btn' ? 'flex ' : 'hidden'} justify-center items-center my-4 rounded-xl min-h-full w-full bg-dark`}>week</article>
-        <article className={`${activeBtn === 'monthly-btn' ? 'flex ' : 'hidden'} justify-center items-center my-4 rounded-xl min-h-full w-full bg-dark`}>month</article>
+        <article className="my-6">
+          <div className={`${activeBtn === 'daily-btn' ? 'block' : 'hidden'} flex justify-center items-center my-4 rounded-xl min-h-full w-full bg-dark`}>
+            <Daily />
+          </div>
+          <div className={`${activeBtn === 'weekly-btn' ? 'block' : 'hidden'} flex justify-center items-center my-4 rounded-xl min-h-full w-full bg-dark`}>
+            <Weekly />
+          </div>
+          <div className={`${activeBtn === 'monthly-btn' ? 'block' : 'hidden'} flex justify-center items-center my-4 rounded-xl min-h-full w-full bg-dark`}>
+            <Monthly />
+          </div>
+        </article>
       </section>
     </main>
   );
