@@ -1,1 +1,0 @@
-https://nft.urbandesignsco.com/api/
