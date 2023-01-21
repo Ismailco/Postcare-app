@@ -2,131 +2,131 @@
 // to store all the static data and text used in the application
 // for easy access and modification in the future.
 
-const AppName = "PostOP";
+const AppName = 'PostOP';
 
 const navLinks = [
-    {
-        id: 1,
-        name: "Sign in",
-        path: "/login",
-    },
-    {
-        id: 2,
-        name: "Get started",
-        path: "/signup",
-    },
+  {
+    id: 1,
+    name: 'Sign in',
+    path: '/login',
+  },
+  {
+    id: 2,
+    name: 'Get started',
+    path: '/signup',
+  },
 ];
 
 const navigationLinks = [
-    {
-        id: 1,
-        name: "Dashboard",
-        path: "/dashboard",
-    },
-    {
-        id: 2,
-        name: "Profile",
-        path: "/profile",
-    },
-    {
-        id: 3,
-        name: "Messanger",
-        path: "/messanger",
-    },
-    {
-        id: 4,
-        name: "To-Do List",
-        path: "/todo",
-    },
+  {
+    id: 1,
+    name: 'Dashboard',
+    path: '/dashboard',
+  },
+  {
+    id: 2,
+    name: 'Profile',
+    path: '/profile',
+  },
+  {
+    id: 3,
+    name: 'Messanger',
+    path: '/messanger',
+  },
+  {
+    id: 4,
+    name: 'To-Do List',
+    path: '/todo',
+  },
 ];
 
 const footerLinksOne = [
-    {
-        id: 1,
-        name: "Company",
-        path: "/company",
-    },
-    {
-        id: 2,
-        name: "About",
-        path: "/about",
-    },
-    {
-        id: 3,
-        name: "Blog",
-        path: "/blog",
-    },
-    {
-        id: 4,
-        name: "Careers",
-        path: "/careers",
-    },
-    {
-        id: 5,
-        name: "Referral Program",
-        path: "/referral",
-    },
-    {
-        id: 6,
-        name: "Community",
-        path: "/community",
-    },
+  {
+    id: 1,
+    name: 'Company',
+    path: '/company',
+  },
+  {
+    id: 2,
+    name: 'About',
+    path: '/about',
+  },
+  {
+    id: 3,
+    name: 'Blog',
+    path: '/blog',
+  },
+  {
+    id: 4,
+    name: 'Careers',
+    path: '/careers',
+  },
+  {
+    id: 5,
+    name: 'Referral Program',
+    path: '/referral',
+  },
+  {
+    id: 6,
+    name: 'Community',
+    path: '/community',
+  },
 ];
 
 const footerLinksTwo = [
-    {
-        id: 1,
-        name: "Support",
-        path: "/support",
-    },
-    {
-        id: 2,
-        name: "Help Center",
-        path: "/help",
-    },
-    {
-        id: 3,
-        name: "FAQ",
-        path: "/faq",
-    },
-    {
-        id: 4,
-        name: "Contact",
-        path: "/contact",
-    },
-    {
-        id: 5,
-        name: "Press",
-        path: "/press",
-    },
-    {
-        id: 6,
-        name: "Status",
-        path: "/status",
-    },
+  {
+    id: 1,
+    name: 'Support',
+    path: '/support',
+  },
+  {
+    id: 2,
+    name: 'Help Center',
+    path: '/help',
+  },
+  {
+    id: 3,
+    name: 'FAQ',
+    path: '/faq',
+  },
+  {
+    id: 4,
+    name: 'Contact',
+    path: '/contact',
+  },
+  {
+    id: 5,
+    name: 'Press',
+    path: '/press',
+  },
+  {
+    id: 6,
+    name: 'Status',
+    path: '/status',
+  },
 ];
 
 const footerLinksThree = [
-    {
-        id: 1,
-        name: "Terms of Service",
-        path: "/terms",
-    },
-    {
-        id: 2,
-        name: "Privacy Policy",
-        path: "/privacy",
-    },
-    {
-        id: 3,
-        name: "Security",
-        path: "/security",
-    },
-    {
-        id: 4,
-        name: "Sitemap",
-        path: "/sitemap",
-    },
+  {
+    id: 1,
+    name: 'Terms of Service',
+    path: '/terms',
+  },
+  {
+    id: 2,
+    name: 'Privacy Policy',
+    path: '/privacy',
+  },
+  {
+    id: 3,
+    name: 'Security',
+    path: '/security',
+  },
+  {
+    id: 4,
+    name: 'Sitemap',
+    path: '/sitemap',
+  },
 ];
 
 const copyRightText = `© ${new Date().getFullYear()} ${AppName}. All rights reserved.`;
@@ -134,30 +134,29 @@ const copyRightText = `© ${new Date().getFullYear()} ${AppName}. All rights res
 // API Constants
 
 // HTTP 401
-export const UNAUTHORIZED = "Session expired. Please login";
+export const UNAUTHORIZED = 'Session expired. Please login';
 
 // HTTP 404
-export const NOT_FOUND = "The requested resource was not found";
+export const NOT_FOUND = 'The requested resource was not found';
 
 // HTTP 500
-export const SERVER_ERROR = "Something has gone wrong, please try again";
+export const SERVER_ERROR = 'Something has gone wrong, please try again';
 
 // HTTP 503
-export const SERVICE_UNAVAILABLE =
-    "Service unavailable. Please try again later";
+export const SERVICE_UNAVAILABLE = 'Service unavailable. Please try again later';
 
 export {
-    AppName,
-    navLinks,
-    navigationLinks,
-    footerLinksOne,
-    footerLinksTwo,
-    footerLinksThree,
-    copyRightText,
+  AppName,
+  navLinks,
+  navigationLinks,
+  footerLinksOne,
+  footerLinksTwo,
+  footerLinksThree,
+  copyRightText,
 
-    // API Constants
-    UNAUTHORIZED,
-    NOT_FOUND,
-    SERVER_ERROR,
-    SERVICE_UNAVAILABLE,
+  // API Constants
+  UNAUTHORIZED,
+  NOT_FOUND,
+  SERVER_ERROR,
+  SERVICE_UNAVAILABLE,
 };
