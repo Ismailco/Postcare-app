@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import profile_pic from '../assets/img/profile.png';
 import { footerLinksThree, url } from '../constants';
@@ -32,27 +32,27 @@ const Signup = () => {
       setPassValid(true);
       setPassLength(true);
       console.log('valid');
-      // fetch(`${url}register`, params)
-      //   .then((res) => {
-      //     localStorage.setItem('token', res.headers.get('Authorization'));
-      //     return res.json();
-      //   })
-      //   .then((data) => {
-      //     if (data.status) {
-      //       localStorage.setItem('user', JSON.stringify(data));
-      //     } else {
-      //       // alert(data.errors);
-      //       console.log(data.errors);
-      //     }
-      //   })
-      //   .then(() => {
-      //     navigate('/dashboard');
-      //   })
-      //   .catch((err) => {
-      //     throw new Error(err);
-      //   });
+      fetch(`${url}register`, params)
+        .then((res) => {
+          localStorage.setItem('token', res.headers.get('Authorization'));
+          return res.json();
+        })
+        .then((data) => {
+          if (data.status) {
+            localStorage.setItem('user', JSON.stringify(data));
+          } else {
+            // alert(data.errors);
+            console.log(data.errors);
+          }
+        })
+        .then(() => {
+          navigate('/dashboard');
+        })
+        .catch((err) => {
+          throw new Error(err);
+        });
     }
-    
+
     // Password validation check (it could be improved)
     if (password.value !== passwordConfirmation.value) {
       setPassValid(false);
@@ -67,6 +67,14 @@ const Signup = () => {
       setPassLength(true);
     }
   };
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token && token !== 'null') {
+      navigate('/dashboard');
+    }
+  }, []);
+
   return (
     <div className="flex justify-center items-center w-full py-20">
       <section className="rounded flex flex-col border border-[#111827] lg:w-1/3 w-4/5 m-4 p-4">
