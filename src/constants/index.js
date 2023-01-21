@@ -1,7 +1,6 @@
 // This file and the constants folder are used
 // to store all the static data and text used in the application
 // for easy access and modification in the future.
-import url from './apiUrl';
 
 const AppName = 'PostOP';
 
@@ -132,8 +131,34 @@ const footerLinksThree = [
 
 const copyRightText = `© ${new Date().getFullYear()} ${AppName}. All rights reserved.`;
 
+// API Constants
+// API url
+const url = 'https://nft.urbandesignsco.com/api/';
+
+// HTTP 401
+const UNAUTHORIZED = 'Session expired. Please login';
+
+// HTTP 404
+const NOT_FOUND = 'The requested resource was not found';
+
+// HTTP 500
+const SERVER_ERROR = 'Something has gone wrong, please try again';
+
+// HTTP 503
+const SERVICE_UNAVAILABLE = 'Service unavailable. Please try again later';
+
 export {
-  AppName, navLinks, navigationLinks,
-  footerLinksOne, footerLinksTwo, footerLinksThree,
-  copyRightText, url,
+  AppName,
+  navLinks,
+  navigationLinks,
+  footerLinksOne,
+  footerLinksTwo,
+  footerLinksThree,
+  copyRightText,
+  url,
+  // API Constants
+  UNAUTHORIZED,
+  NOT_FOUND,
+  SERVER_ERROR,
+  SERVICE_UNAVAILABLE,
 };

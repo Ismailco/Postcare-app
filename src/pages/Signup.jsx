@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import axios from '../app/api';
 import profile_pic from '../assets/img/profile.png';
 import { footerLinksThree, url } from '../constants';
 
@@ -20,33 +21,13 @@ const Signup = () => {
       password_confirmation: passwordConfirmation.value,
     };
 
-    const params = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    };
-
     if (password.value === passwordConfirmation.value && password.value.length > 7) {
       setPassValid(true);
       setPassLength(true);
-      console.log('valid');
-      fetch(`${url}register`, params)
-        .then((res) => {
-          localStorage.setItem('token', res.headers.get('Authorization'));
-          return res.json();
-        })
-        .then((data) => {
-          if (data.status) {
-            localStorage.setItem('user', JSON.stringify(data));
-          } else {
-            // alert(data.errors);
-            console.log(data.errors);
-          }
-        })
+      axios
+        .post('register', data)
         .then(() => {
-          navigate('/dashboard');
+          navigate('/login');
         })
         .catch((err) => {
           throw new Error(err);

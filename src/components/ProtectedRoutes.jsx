@@ -4,7 +4,7 @@ import Navigation from './Navigation';
 const useAuth = () => {
   let loggedIn = false;
   const token = localStorage.getItem('token');
-  if (token && token !== 'null') {
+  if ((token && token !== 'null') || (token && token !== 'undefined')) {
     loggedIn = true;
   } else {
     loggedIn = false;

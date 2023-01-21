@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import axios from '../app/api';
 import { url } from '../constants';
 
 const Login = () => {
@@ -13,25 +14,13 @@ const Login = () => {
       password: password.value,
     };
 
-    console.log(data);
-
-    const params = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    };
-
     if (password.value.length !== 0 && email.value.length !== 0) {
-      fetch(`${url}login`, params)
-        .then((res) => {
-          return res.json();
-        })
+      axios
+        .post("login", data)
         .then((data) => {
           if (data.status) {
-            localStorage.setItem('user', JSON.stringify(data.data.patient));
-            localStorage.setItem('token', data.data.token);
+            localStorage.setItem('user', JSON.stringify(data.data.data.patient));
+            localStorage.setItem('token', data.data.data.token);
           } else {
             console.log(data.errors);
           }
