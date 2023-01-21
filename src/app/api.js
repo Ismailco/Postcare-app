@@ -1,5 +1,8 @@
 import axios from 'axios';
-import { UNAUTHORIZED, NOT_FOUND, SERVER_ERROR, SERVICE_UNAVAILABLE } from './constants';
+import {
+  UNAUTHORIZED, NOT_FOUND, SERVER_ERROR, SERVICE_UNAVAILABLE,
+} from '../constants';
+
 // create an axios instance
 const api = axios.create({
   baseURL: 'https://nft.urbandesignsco.com/api/',
@@ -97,7 +100,7 @@ api.interceptors.response.use(
     }
 
     return promise;
-  }
+  },
 );
 
 export default api;
