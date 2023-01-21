@@ -131,8 +131,32 @@ const footerLinksThree = [
 
 const copyRightText = `© ${new Date().getFullYear()} ${AppName}. All rights reserved.`;
 
+// API Constants
+
+// HTTP 401
+const UNAUTHORIZED = 'Session expired. Please login';
+
+// HTTP 404
+const NOT_FOUND = 'The requested resource was not found';
+
+// HTTP 500
+const SERVER_ERROR = 'Something has gone wrong, please try again';
+
+// HTTP 503
+const SERVICE_UNAVAILABLE = 'Service unavailable. Please try again later';
+
 export {
-  AppName, navLinks, navigationLinks,
-  footerLinksOne, footerLinksTwo, footerLinksThree,
+  AppName,
+  navLinks,
+  navigationLinks,
+  footerLinksOne,
+  footerLinksTwo,
+  footerLinksThree,
   copyRightText,
+
+  // API Constants
+  UNAUTHORIZED,
+  NOT_FOUND,
+  SERVER_ERROR,
+  SERVICE_UNAVAILABLE,
 };
