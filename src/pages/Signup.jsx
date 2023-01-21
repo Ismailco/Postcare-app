@@ -5,6 +5,7 @@ import { footerLinksThree, url } from '../constants';
 
 const Signup = () => {
   const [passValid, setPassValid] = useState(true);
+  const [passLength, setPassLength] = useState(true);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -27,28 +28,43 @@ const Signup = () => {
       body: JSON.stringify(data),
     };
 
-    if (password.value === passwordConfirmation.value) {
+    if (password.value === passwordConfirmation.value && password.value.length > 7) {
       setPassValid(true);
-      fetch(`${url}register`, params)
-        .then((res) => {
-          localStorage.setItem('token', res.headers.get('Authorization'));
-          return res.json();
-        })
-        .then((data) => {
-          if (data.status) {
-            localStorage.setItem('user', JSON.stringify(data));
-          } else {
-            alert(data.errors);
-          }
-        })
-        .then(() => {
-          navigate('/dashboard');
-        })
-        .catch((err) => {
-          throw new Error(err);
-        });
-    } else {
+      setPassLength(true);
+      console.log('valid');
+      // fetch(`${url}register`, params)
+      //   .then((res) => {
+      //     localStorage.setItem('token', res.headers.get('Authorization'));
+      //     return res.json();
+      //   })
+      //   .then((data) => {
+      //     if (data.status) {
+      //       localStorage.setItem('user', JSON.stringify(data));
+      //     } else {
+      //       // alert(data.errors);
+      //       console.log(data.errors);
+      //     }
+      //   })
+      //   .then(() => {
+      //     navigate('/dashboard');
+      //   })
+      //   .catch((err) => {
+      //     throw new Error(err);
+      //   });
+    }
+    
+    // Password validation check (it could be improved)
+    if (password.value !== passwordConfirmation.value) {
       setPassValid(false);
+      console.log('Mismatch');
+    } else {
+      setPassValid(true);
+    }
+    if (password.value.length < 8) {
+      setPassLength(false);
+      console.log('invalid length');
+    } else {
+      setPassLength(true);
     }
   };
   return (
@@ -82,7 +98,12 @@ const Signup = () => {
             Confirm Password
           </label>
           <input required className="border border-[#111827] p-2 mb-4" type="password" id="passwordConfirmation" placeholder="**************" />
-          <p className={`${passValid ? 'hidden' : 'block'} text-accent-100`}>Password and password confirmation do not match</p>
+          <p className={`${passValid ? 'hidden' : 'block'} text-accent-100`}>
+            <i className="fas fa-circle-small fa-sm pr-2"></i>Password and password confirmation do not match
+          </p>
+          <p className={`${passLength ? 'hidden' : 'block'} text-accent-100`}>
+            <i className="fas fa-circle-small fa-sm pr-2"></i>The password must be at least 8 characters.
+          </p>
           <button className="bg-[#bbb] p-2 my-4 text-white" type="submit">
             Create Account
           </button>
