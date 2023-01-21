@@ -30,7 +30,7 @@ const Signup = () => {
           navigate('/login');
         })
         .catch((err) => {
-          throw new Error(err);
+          throw new Error(err.content.email);
         });
     }
 
