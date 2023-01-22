@@ -17,7 +17,7 @@ body {
 
 .appointments-cell td,
 .appointments-cell th {
-  padding: 15px;
+  padding: 10px;
 }
 
 .appointments-cell:nth-child(even) {

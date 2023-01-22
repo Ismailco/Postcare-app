@@ -10,7 +10,6 @@ const ToDoList = () => {
     setActiveBtn(id);
   };
 
-  // Api test
   useEffect(() => {
     document.title = 'Dashboard - Postcare';
     api

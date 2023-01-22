@@ -16,13 +16,13 @@ const Login = () => {
 
     if (password.value.length !== 0 && email.value.length !== 0) {
       axios
-        .post("login", data)
-        .then((data) => {
-          if (data.status) {
-            localStorage.setItem('user', JSON.stringify(data.data.data.patient));
-            localStorage.setItem('token', JSON.stringify(data.data.data.token));
+        .post('login', data)
+        .then((res) => {
+          if (res.status) {
+            localStorage.setItem('user', JSON.stringify(res.data.data.patient));
+            localStorage.setItem('token', JSON.stringify(res.data.data.token));
           } else {
-            console.log(data.errors);
+            console.log(res.errors);
           }
         })
         .then(() => {
