@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import api from '../app/api';
 import { Daily, Weekly, Monthly } from '../components/Todos';
 
 const ToDoList = () => {
@@ -8,6 +9,19 @@ const ToDoList = () => {
     const { id } = e.target;
     setActiveBtn(id);
   };
+
+  // Api test
+  useEffect(() => {
+    document.title = 'Dashboard - Postcare';
+    api
+      .get('patients/todos')
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => {
+        throw new Error(err);
+      });
+  }, []);
 
   return (
     <main className="flex flex-col m-4 w-full">

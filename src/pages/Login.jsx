@@ -20,7 +20,7 @@ const Login = () => {
         .then((data) => {
           if (data.status) {
             localStorage.setItem('user', JSON.stringify(data.data.data.patient));
-            localStorage.setItem('token', data.data.data.token);
+            localStorage.setItem('token', JSON.stringify(data.data.data.token));
           } else {
             console.log(data.errors);
           }

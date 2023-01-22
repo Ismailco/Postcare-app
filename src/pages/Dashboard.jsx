@@ -1,15 +1,8 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import axios from '../app/api';
 import { profile } from '../assets/img/index';
 
 const Dashboard = () => {
-  useEffect(() => {
-    document.title = 'Dashboard - Postcare';
-    axios.get('patients/todos').then((data) => {
-      console.log(data);
-    });
-  }, []);
   return (
     <main className="flex flex-col m-4 w-full">
       <section className="my-6">

@@ -1,7 +1,5 @@
 import axios from 'axios';
-import {
-  UNAUTHORIZED, NOT_FOUND, SERVER_ERROR, SERVICE_UNAVAILABLE,
-} from '../constants';
+import { UNAUTHORIZED, NOT_FOUND, SERVER_ERROR, SERVICE_UNAVAILABLE } from '../constants';
 
 // create an axios instance
 const api = axios.create({
@@ -11,11 +9,11 @@ const api = axios.create({
 // request interceptor
 api.interceptors.request.use((request) => {
   // check if token exists
-  const token = localStorage.getItem('token');
+  const token = JSON.parse(localStorage.getItem('token'));
 
   if (token) {
     // set token to request header
-    request.headers.common.Authorization = `${JSON.parse(token).token}`;
+    request.headers.Authorization = `Bearer ${token}`;
   }
   return request;
 });
@@ -33,7 +31,9 @@ api.interceptors.response.use(
       promise = Promise.reject(error);
     } else {
       // get error status
-      const { status, data } = error.response;
+      // const { status, data } = error.response;
+      const status = error.response.status;
+      const data = error.response.data;
 
       // handle errors
       switch (status) {
@@ -100,7 +100,7 @@ api.interceptors.response.use(
     }
 
     return promise;
-  },
+  }
 );
 
 export default api;
