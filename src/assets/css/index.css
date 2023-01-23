@@ -10,9 +10,15 @@
   margin: 0;
 }
 
-body {
+body,
+html {
   font-family: Inter, sans-serif;
   overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+img {
+  max-width: 100%;
 }
 
 .appointments-cell td,
