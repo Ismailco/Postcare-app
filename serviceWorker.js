@@ -1,5 +1,5 @@
 const CACHE_NAME = 'postcare-cache-v1';
-const urlsToCache = ['/', '/index.html, /.js$/', /\.jsx$/, '/.css$/', '/.png$/', '/.jpg$/', '/.svg$/', '/.woff$/', '/.woff2$/', '/.ttf$/', '/.otf$/', '/.eot$/', '/.ico$/', '/.json$/'];
+const urlsToCache = ['/', '/index.html', '/.js$/', '/.jsx$/', '/.css$/', '/.png$/', '/.jpg$/', '/.svg$/', '/.woff$/', '/.woff2$/', '/.ttf$/', '/.otf$/', '/.eot$/', '/.ico$/', '/.json$/'];
 /* eslint-disable no-undef */
 globalThis.addEventListener('install', (event) => {
   // Perform install steps
@@ -12,7 +12,7 @@ globalThis.addEventListener('fetch', (event) => {
         return response;
       }
       return fetch(event.request);
-    }),
+    })
   );
 });
 globalThis.addEventListener('install', (event) => {
