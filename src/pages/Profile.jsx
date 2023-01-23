@@ -1,5 +1,6 @@
 import React from 'react';
 import { profile } from '../assets/img/index';
+import { userName } from '../constants'
 
 const Profile = () => (
   <main className="flex flex-col m-4">
@@ -9,7 +10,7 @@ const Profile = () => (
     </section>
     <section className="flex justify-start items-center m-4">
       <img className="border rounded-full mr-4" src={profile} alt="profile" />
-      <h2 className="text-xl font-bold">Full Name</h2>
+      <h2 className="text-xl font-bold">{userName}</h2>
     </section>
   </main>
 );
