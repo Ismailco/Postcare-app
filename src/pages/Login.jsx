@@ -27,6 +27,7 @@ const Login = () => {
         })
         .then(() => {
           navigate('/dashboard');
+          window.location.reload();
         })
         .catch((err) => {
           throw new Error(err);
