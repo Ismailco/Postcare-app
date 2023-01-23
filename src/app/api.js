@@ -14,7 +14,7 @@ const createError = (message, code, status, errors) => {
     Code: ${error.code}
     Status: ${error.status}
     `;
-}
+};
 
 // create an axios instance
 const api = axios.create({
