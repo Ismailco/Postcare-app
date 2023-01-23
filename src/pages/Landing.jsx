@@ -16,7 +16,7 @@ const Landing = () => (
           </Link>
         </div>
       </div>
-      <img className="w-96 border" src={hero} alt="landing" />
+      <img className="w-96 h-full border" src={hero} alt="landing" />
     </section>
     <section className="flex justify-center items-center text-2xl font-bold w-full h-96 bg-light"></section>
   </main>
