@@ -9,14 +9,14 @@ const Landing = () => (
         <h1 className="text-4xl font-bold text-primary">We make it easier for patients to recover from surgery at home</h1>
         <div>
           <Link to="/signup">
-            <button className="duration-500 bg-primary text-white rounded-full py-2 px-4 mt-4 hover:bg-accent-100">Get Started</button>
+            <button className="duration-500 bg-primary text-white rounded-full py-2 px-4 mt-4 mr-4 hover:bg-black/50 shadow shadow-xl">Get Started</button>
           </Link>
           <Link to="/dashboard">
-            <button className="duration-500 bg-secondary text-white rounded-full py-2 px-4 mt-4 ml-4 hover:bg-accent-100">Learn More</button>
+            <button className="duration-500 bg-secondary text-white rounded-full py-2 px-4 mt-4 hover:bg-black/50 shadow shadow-xl">Start Your Recovery</button>
           </Link>
         </div>
       </div>
-      <img className="w-96 border" src={hero} alt="landing" />
+      <img className="w-96 h-full border rounded-md shadow shadow-xl shadow-ligth" src={hero} alt="landing" />
     </section>
     <section className="flex justify-center items-center text-2xl font-bold w-full h-96 bg-light"></section>
   </main>

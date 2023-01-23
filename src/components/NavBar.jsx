@@ -4,7 +4,7 @@ import { navLinks } from '../constants';
 import { whiteLogo, logo } from '../assets/img';
 
 const NavBar = () => (
-  <nav className="w-full h-[80px] flex px-2 justify-between items-center bg-primary font-medium">
+  <nav className="w-full h-[80px] flex px-2 md:px-6 justify-between items-center bg-primary font-medium">
     <Link to="/">
       <img className="hidden md:block w-36 h-10 bg-gray-400" src={whiteLogo} alt="logo" />
       <img className="md:hidden w-20 h-10 bg-gray-400" src={logo} alt="logo" />

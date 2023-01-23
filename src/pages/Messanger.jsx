@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import { profile } from '../assets/img/index';
 
 const Messanger = () => (
-  <main className="flex flex-col m-4 w-full">
-    <section className="m-4">
+  <main className="flex flex-col p-4 w-full">
+    <section className="my-6 xl:ml-6">
       <h1 className="text-2xl font-bold mb-4">Messenger</h1>
       <p>Your secure, online, healthcare tracking site. Helping you manage your personal health information with your practices, anytime and anywhere.</p>
     </section>
-    <section className="flex flex-col justify-start items-center m-4">
+    <section className="flex flex-col justify-start items-center xl:items-start my-6 xl:ml-6">
       {/* This section units need to change after getting the API (or dumy data) from david */}
       <article className="flex flex-col md:flex-row justify-between items-center border p-4">
         <img className="rounded-full mr-4" src={profile} alt="profile" />
