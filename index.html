@@ -33,11 +33,9 @@
         window.addEventListener('load', () => {
           navigator.serviceWorker
             .register('serviceWorker.js')
-            .then((registration) => {
-              console.log('SW registered: ', registration.scope);
-            })
+            .then((registration) => {})
             .catch((registrationError) => {
-              console.log('SW registration failed: ', registrationError);
+              throw new Error(registrationError);
             });
         });
       }
