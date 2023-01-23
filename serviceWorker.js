@@ -1,17 +1,17 @@
-let CACHE_NAME = 'postcare-cache-v1';
+const CACHE_NAME = 'postcare-cache-v1';
 const urlsToCache = ['/', '/index.html'];
-self.addEventListener('install', function (event) {
+self.addEventListener('install', (event) => {
   // Perform install steps
   event.waitUntil(
-    caches.open(CACHE_NAME).then(function (cache) {
+    caches.open(CACHE_NAME).then((cache) => {
       console.log('Opened cache');
       return cache.addAll(urlsToCache);
     })
   );
 });
-self.addEventListener('fetch', function (event) {
+self.addEventListener('fetch', (event) => {
   event.respondWith(
-    caches.match(event.request).then(function (response) {
+    caches.match(event.request).then((response) => {
       if (response) {
         return response;
       }
@@ -19,10 +19,10 @@ self.addEventListener('fetch', function (event) {
     })
   );
 });
-self.addEventListener('install', function (event) {
+self.addEventListener('install', (event) => {
   // Perform install steps
   event.waitUntil(
-    caches.open(CACHE_NAME).then(function (cache) {
+    caches.open(CACHE_NAME).then((cache) => {
       console.log('Opened cache');
       return cache.addAll(urlsToCache);
     })

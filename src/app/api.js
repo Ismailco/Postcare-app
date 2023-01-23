@@ -31,9 +31,7 @@ api.interceptors.response.use(
       promise = Promise.reject(error);
     } else {
       // get error status
-      // const { status, data } = error.response;
-      const status = error.response.status;
-      const data = error.response.data;
+      const { status, data } = error.response;
 
       // handle errors
       switch (status) {
