@@ -2,7 +2,9 @@
 // to store all the static data and text used in the application
 // for easy access and modification in the future.
 
-const AppName = 'PostOP';
+const AppName = 'Postcare';
+const user = JSON.parse(localStorage.getItem('user'));
+const userName = user ? `${user.first_name} ${user.last_name}` : '';
 
 const navLinks = [
   {
@@ -149,6 +151,8 @@ const SERVICE_UNAVAILABLE = 'Service unavailable. Please try again later';
 
 export {
   AppName,
+  user,
+  userName,
   navLinks,
   navigationLinks,
   footerLinksOne,

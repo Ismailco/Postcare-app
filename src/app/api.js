@@ -3,6 +3,19 @@ import {
   UNAUTHORIZED, NOT_FOUND, SERVER_ERROR, SERVICE_UNAVAILABLE,
 } from '../constants';
 
+const createError = (message, code, status, errors) => {
+  const error = new Error();
+  error.message = message;
+  error.code = code;
+  error.status = status;
+  error.errors = errors;
+  return `${error.message ? `${error.message} ` : ''}
+    Details: ${error.errors ? JSON.stringify(errors) : ''}
+    Code: ${error.code}
+    Status: ${error.status}
+    `;
+};
+
 // create an axios instance
 const api = axios.create({
   baseURL: 'https://nft.urbandesignsco.com/api/',
@@ -38,63 +51,39 @@ api.interceptors.response.use(
       // handle errors
       switch (status) {
         case 0:
-          promise = Promise.reject({
-            type: 'app',
-            content: SERVER_ERROR,
-          });
+          promise = Promise.reject(createError(SERVER_ERROR, 'server_error', 0, data.errors));
           break;
 
         case 400:
-          promise = Promise.reject({
-            type: 'field',
-            content: data.errors,
-          });
+          promise = Promise.reject(createError(data.message, 'field_error', 400, data.errors));
           break;
 
         case 401:
           // check if request was not login
           if (!error.config.url.includes('login')) {
             localStorage.removeItem('token');
-            location.href = '/login';
+            window.location.href = '/login';
 
-            promise = Promise.reject({
-              type: 'app',
-              content: UNAUTHORIZED,
-            });
+            promise = Promise.reject(createError(UNAUTHORIZED, 'unauthorized', 401, data.errors));
           } else {
-            promise = Promise.reject({
-              type: 'app',
-              content: data.message,
-            });
+            promise = Promise.reject(createError(data.message, 'unauthorized', 401, data.errors));
           }
           break;
 
         case 404:
-          promise = Promise.reject({
-            type: 'app',
-            content: NOT_FOUND,
-          });
+          promise = Promise.reject(createError(NOT_FOUND, 'not_found', 404, data.errors));
           break;
 
         case 500:
-          promise = Promise.reject({
-            type: 'app',
-            content: SERVER_ERROR,
-          });
+          promise = Promise.reject(createError(SERVER_ERROR, 'server_error', 500, data.errors));
           break;
 
         case 503:
-          promise = Promise.reject({
-            type: 'app',
-            content: SERVICE_UNAVAILABLE,
-          });
+          promise = Promise.reject(createError(SERVICE_UNAVAILABLE, 'service_unavailable', 503, data.errors));
           break;
 
         default:
-          promise = Promise.reject({
-            type: 'app',
-            content: data.message,
-          });
+          promise = Promise.reject(createError(data.message, 'unknown_error', status, data.errors));
           break;
       }
     }

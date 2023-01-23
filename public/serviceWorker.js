@@ -11,7 +11,7 @@ globalThis.addEventListener('fetch', (event) => {
         return response;
       }
       return fetch(event.request);
-    })
+    }),
   );
 });
 globalThis.addEventListener('install', (event) => {

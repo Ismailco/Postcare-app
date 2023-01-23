@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import api from '../app/api';
+import { useSelector, useDispatch } from 'react-redux';
+import { getTodos } from '../redux/slice/todos';
 import { Daily, Weekly, Monthly } from '../components/Todos';
 
 const ToDoList = () => {
   const [activeBtn, setActiveBtn] = useState('daily-btn');
+  const todos = useSelector((state) => state.todos);
+  const dispatch = useDispatch();
 
   const handleClick = (e) => {
     const { id } = e.target;
@@ -12,14 +15,7 @@ const ToDoList = () => {
 
   useEffect(() => {
     document.title = 'Dashboard - Postcare';
-    api
-      .get('patients/todos')
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((err) => {
-        throw new Error(err);
-      });
+    dispatch(getTodos());
   }, []);
 
   return (
@@ -42,13 +38,13 @@ const ToDoList = () => {
         </article>
         <article className="my-6">
           <div className={`${activeBtn === 'daily-btn' ? 'block' : 'hidden'} flex justify-center items-center my-4 rounded-xl min-h-full w-full bg-dark`}>
-            <Daily />
+            <Daily todos={todos.daily} />
           </div>
           <div className={`${activeBtn === 'weekly-btn' ? 'block' : 'hidden'} flex justify-center items-center my-4 rounded-xl min-h-full w-full bg-dark`}>
-            <Weekly />
+            <Weekly todos={todos.weekly} />
           </div>
           <div className={`${activeBtn === 'monthly-btn' ? 'block' : 'hidden'} flex justify-center items-center my-4 rounded-xl min-h-full w-full bg-dark`}>
-            <Monthly />
+            <Monthly todos={todos.monthly} />
           </div>
         </article>
       </section>
