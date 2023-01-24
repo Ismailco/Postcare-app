@@ -9,15 +9,25 @@
       "type": "image/png"
     },
     {
-      "src": "/icon1024.png",
-      "sizes": "1024x1024",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
       "src": "/icon512.png",
       "sizes": "512x512",
       "type": "image/png"
+    },
+    {
+      "src": "/icon1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
   "background_color": "#333399",
