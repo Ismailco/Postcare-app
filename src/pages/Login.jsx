@@ -1,10 +1,8 @@
 import React, { useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from '../app/api';
-import { url } from '../constants';
 
 const Login = () => {
-  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     const { email, password } = e.target.elements;
@@ -26,8 +24,7 @@ const Login = () => {
           }
         })
         .then(() => {
-          navigate('/dashboard');
-          window.location.reload();
+          window.location.href = '/dashboard';
         })
         .catch((err) => {
           throw new Error(err);
