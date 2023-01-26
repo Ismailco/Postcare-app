@@ -6,7 +6,8 @@ import Dashboard from './Dashboard';
 import Profile from './Profile';
 import Messanger from './Messanger';
 import ToDoList from './ToDoList';
+import Chat from './Chat';
 
 export {
-  Login, Signup, Landing, NotFound404, Dashboard, Profile, Messanger, ToDoList,
+  Login, Signup, Landing, NotFound404, Dashboard, Profile, Messanger, ToDoList, Chat,
 };
