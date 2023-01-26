@@ -15,7 +15,7 @@ const Messanger = () => (
         <div className="flex flex-col justify-center items-center md:items-start text-center md:text-start md:w-3/4 md:mr-4">
           {/* The link redirect to the Chat of the specefic provider (change it later) */}
           <Link to="/messanger/1">
-            <h2 className="text-xl font-bold hover:underline">Provider Name</h2>
+            <h2 className="text-xl font-bold hover:underline">John Doe</h2>
           </Link>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
         </div>
@@ -29,7 +29,7 @@ const Messanger = () => (
         <div className="flex flex-col justify-center items-center md:items-start text-center md:text-start md:w-3/4 md:mr-4">
           {/* The link redirect to the Chat of the specefic provider (change it later) */}
           <Link to="/messanger/1">
-            <h2 className="text-xl font-bold hover:underline">Provider Name</h2>
+            <h2 className="text-xl font-bold hover:underline">John Doe</h2>
           </Link>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
         </div>
@@ -43,7 +43,7 @@ const Messanger = () => (
         <div className="flex flex-col justify-center items-center md:items-start text-center md:text-start md:w-3/4 md:mr-4">
           {/* The link redirect to the Chat of the specefic provider (change it later) */}
           <Link to="/messanger/1">
-            <h2 className="text-xl font-bold hover:underline">Provider Name</h2>
+            <h2 className="text-xl font-bold hover:underline">John Doe</h2>
           </Link>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
         </div>
