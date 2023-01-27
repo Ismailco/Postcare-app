@@ -22,17 +22,17 @@ const Weekly = ({ todos }) => {
       <h1 className="text-2xl font-bold my-4">{todayDate}</h1>
       <h2 className="text-xl font-bold my-4">todo list</h2>
       <div className="flex justify-between items-start w-full">
-        <div>
+        <div className="w-full">
           {todos.length === 0
             ? 'No tasks for today check next week todos'
             : todos.map((todo) => (
-                <div key={todo.id} className="flex w-96 mb-2 ">
+                <div key={todo.id} className="flex w-full mb-2 ">
                   <label htmlFor="todo" className="flex items-center border p-2 rounded w-full">
                     <input type="checkbox" id="todo" className="hidden" />
                     <button id={todo.id} type="button" className={`${todo.completed ? 'bg-green-700' : 'bg-gray-100'} p-2 flex items-center justify-center rounded border-2 border-gray-500 mr-2 shadow-gray-500 shadow-inner`} onClick={(e) => handleComplete(e)}>
                       <p className="text-2xl text-gray-500 hidden">✓</p>
                     </button>
-                    <p className={`text-gray-900`}>{todo.title}</p>
+                    <p className={`text-gray-900`}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem modi commodi quas facere, maiores eos, totam repudiandae debitis labore dolore inventore et eveniet, laudantium tempore necessitatibus? Iure, quis quaerat. Aliquid?</p>
                   </label>
                 </div>
               ))}
