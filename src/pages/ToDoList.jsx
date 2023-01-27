@@ -14,7 +14,7 @@ const ToDoList = () => {
   };
 
   useEffect(() => {
-    document.title = 'Dashboard - Postcare';
+    document.title = 'Todo lists - Postcare';
     dispatch(getTodos());
   }, []);
 
@@ -37,13 +37,13 @@ const ToDoList = () => {
           </button>
         </article>
         <article className="my-6">
-          <div className={`${activeBtn === 'daily-btn' ? 'block' : 'hidden'} flex justify-center items-center my-4 rounded-xl min-h-full w-full bg-dark`}>
+          <div className={`${activeBtn === 'daily-btn' ? 'block' : 'hidden'} flex justify-center items-center my-4 rounded-xl min-h-full w-full border`}>
             <Daily todos={todos.daily} />
           </div>
-          <div className={`${activeBtn === 'weekly-btn' ? 'block' : 'hidden'} flex justify-center items-center my-4 rounded-xl min-h-full w-full bg-dark`}>
+          <div className={`${activeBtn === 'weekly-btn' ? 'block' : 'hidden'} flex justify-center items-center my-4 rounded-xl min-h-full w-full border`}>
             <Weekly todos={todos.weekly} />
           </div>
-          <div className={`${activeBtn === 'monthly-btn' ? 'block' : 'hidden'} flex justify-center items-center my-4 rounded-xl min-h-full w-full bg-dark`}>
+          <div className={`${activeBtn === 'monthly-btn' ? 'block' : 'hidden'} flex justify-center items-center my-4 rounded-xl min-h-full w-full border`}>
             <Monthly todos={todos.monthly} />
           </div>
         </article>
