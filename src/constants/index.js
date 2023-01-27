@@ -5,6 +5,12 @@
 const AppName = 'Postcare';
 const user = JSON.parse(localStorage.getItem('user'));
 const userName = user ? `${user.first_name} ${user.last_name}` : '';
+const todayDate = new Date().toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
 
 const navLinks = [
   {
@@ -152,6 +158,7 @@ const SERVICE_UNAVAILABLE = 'Service unavailable. Please try again later';
 export {
   AppName,
   user,
+  todayDate,
   userName,
   navLinks,
   navigationLinks,
