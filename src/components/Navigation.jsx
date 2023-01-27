@@ -19,7 +19,7 @@ const Navigation = () => {
   }, []);
 
   return (
-    <div className="hidden md:fixed top-0 md:min-h-full xl:static md:flex justify-start items-start bg-dark text-white">
+    <div className="fixed top-0 min-h-full xl:static flex justify-start items-start bg-dark text-white">
       <nav className={`${open ? 'md:w-96' : 'md:w-0'} duration-200`}>
         <ul className={` ${open ? 'flex' : 'hidden'} flex flex-col justify-between items-between m-10`}>
           {navigationLinks.map((link) => (
@@ -32,7 +32,7 @@ const Navigation = () => {
           ))}
         </ul>
       </nav>
-      <button className={` ${open ? 'top-0' : 'top-20 xl:top-0'} h-0 w-0 outline-none relative`} onClick={toggleMenu}>
+      <button className={`${open ? 'top-0' : 'top-20 xl:top-0'} h-0 w-0 outline-none relative`} onClick={toggleMenu}>
         <i className={`${open ? 'fas fa-angles-left -left-9 rounded-l-3xl' : 'fas fa-angles-right -left-2 rounded-r-3xl'} duration-300 relative cursor-pointer text-black text-xl p-2 bg-light duration-500`}></i>
       </button>
     </div>
