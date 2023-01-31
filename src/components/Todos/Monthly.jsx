@@ -8,7 +8,6 @@ const Monthly = ({ todos }) => {
   const dispatch = useDispatch();
 
   const handleComplete = (e) => {
-    console.log(e.target.id);
     dispatch(setCompleted(e.target.id));
     e.target.style.backgroundColor = 'green';
     e.target.nextSibling.style.textDecoration = 'line-through';
