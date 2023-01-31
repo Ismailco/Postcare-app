@@ -4,19 +4,31 @@ import { todayDate } from '../../constants';
 
 const Weekly = ({ todos }) => {
   const handleComplete = (e) => {
-    const index = e.target.id - 1;
-    if (todos[index].completed === false) {
-      todos[index].completed = true;
-      setLocalStorage('todos', todos);
-      e.target.style.backgroundColor = 'green';
-      e.target.nextSibling.style.textDecoration = 'line-through';
-    } else {
-      todos[index].completed = false;
-      setLocalStorage('todos', todos);
+    if (e.target.style.backgroundColor === 'green') {
       e.target.style.backgroundColor = 'white';
       e.target.nextSibling.style.textDecoration = 'none';
+    } else {
+      e.target.style.backgroundColor = 'green';
+      e.target.nextSibling.style.textDecoration = 'line-through';
     }
   };
+
+  const completStatus = () => {
+    const completed = todos.filter((todo) => todo.completed === true);
+    return {
+      complet: 0 || (completed * 100) / todos.length,
+      color: {
+        0: 'red',
+        20: 'yellow',
+        40: 'magenta',
+        50: 'orange',
+        70: 'blue',
+        100: 'green',
+      },
+      total: todos.length,
+    };
+  };
+
   return (
     <article className="flex flex-col w-full justify-start items-start h-fit mx-4">
       <h1 className="text-2xl font-bold my-4">{todayDate}</h1>
@@ -40,7 +52,7 @@ const Weekly = ({ todos }) => {
                 </div>
               ))}
         </div>
-        <Circle className="hidden md:flex" percent={`${5}`} strokeWidth={10} style={{ width: 200, margin: 20 }} trailWidth={10} strokeColor={'red'} />
+        <Circle className="hidden md:flex" percent={`${completStatus().total ? completStatus().complet : '100'}`} strokeWidth={10} style={{ width: 200, margin: 20 }} trailWidth={10} strokeColor={completStatus().total ? completStatus().color[completStatus().complet] : 'green'} />
       </div>
       <h2 className="text-xl font-bold my-4">Upload photo</h2>
     </article>
