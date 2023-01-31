@@ -5,15 +5,24 @@ const FETCH_TODOS = 'postcare/todos/FETCH_TODOS';
 
 // Action Creators
 export const getTodos = () => async (dispatch) => {
-  try {
-    const response = await axios.get('patient/todos');
-    dispatch({
-      type: FETCH_TODOS,
-      payload: response.data.data,
-    });
-  } catch (error) {
-    throw new Error(error);
+  let page = 1;
+  let hasNextPage = true;
+  let todos = [];
+
+  while (hasNextPage) {
+    try {
+      const response = await axios.get(`patient/todos?page=${page}`);
+      todos = [...todos, ...response.data.data.data];
+      hasNextPage = response.data.data.current_page < response.data.data.last_page;
+      page += 1;
+    } catch (error) {
+      throw new Error(error);
+    }
   }
+  dispatch({
+    type: FETCH_TODOS,
+    payload: todos,
+  });
 };
 
 // Reducer
@@ -22,31 +31,21 @@ const initialState = {
   daily: [],
   weekly: [],
   monthly: [],
-  data: [],
 };
 
 const todosReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_TODOS:
       const today = new Date();
-      const daily = action.payload.data.filter((todo) => isSameDay(today, new Date(todo.due_date)));
-      const weekly = action.payload.data.filter((todo) => isSameWeek(today, new Date(todo.due_date)));
-      const monthly = action.payload.data.filter((todo) => isSameMonth(today, new Date(todo.due_date)));
+      const daily = action.payload.filter((todo) => isSameDay(today, new Date(todo.due_date)));
+      const weekly = action.payload.filter((todo) => isSameWeek(today, new Date(todo.due_date)));
+      const monthly = action.payload.filter((todo) => isSameMonth(today, new Date(todo.due_date)));
       return {
         ...state,
-        todos: action.payload.data,
+        todos: action.payload,
         daily,
         weekly,
         monthly,
-        data: {
-          currentPage: action.payload.current_page,
-          lastPage: action.payload.last_page,
-          firstPageUrl: action.payload.first_page_url,
-          lastPageUrl: action.payload.last_page_url,
-          nextPageUrl: action.payload.next_page_url,
-          prevPageUrl: action.payload.prev_page_url,
-          totalTodos: action.payload.total,
-        },
       };
     default:
       return state;

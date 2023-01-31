@@ -26,13 +26,16 @@ const Weekly = ({ todos }) => {
           {todos.length === 0
             ? 'No tasks for today check next week todos'
             : todos.map((todo) => (
-                <div key={todo.id} className="flex w-full mb-2 ">
-                  <label htmlFor="todo" className="flex items-center border p-2 rounded w-full">
+                <div key={todo.id} className="flex w-full mb-2 items-center">
+                  <label htmlFor="todo" className="flex items-start border p-2 rounded w-full">
                     <input type="checkbox" id="todo" className="hidden" />
                     <button id={todo.id} type="button" className={`${todo.completed ? 'bg-green-700' : 'bg-gray-100'} p-2 flex items-center justify-center rounded border-2 border-gray-500 mr-2 shadow-gray-500 shadow-inner`} onClick={(e) => handleComplete(e)}>
                       <p className="text-2xl text-gray-500 hidden">✓</p>
                     </button>
-                    <p className={`text-gray-900`}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem modi commodi quas facere, maiores eos, totam repudiandae debitis labore dolore inventore et eveniet, laudantium tempore necessitatibus? Iure, quis quaerat. Aliquid?</p>
+                    <div>
+                      <p className={`text-gray-900 font-semibold`}>{todo.title}</p>
+                      <p className={`text-gray-900 text-sm`}>{todo.description}</p>
+                    </div>
                   </label>
                 </div>
               ))}
