@@ -4,6 +4,15 @@ import { isSameDay, isSameWeek, isSameMonth } from '../utils/dateCheck';
 const FETCH_TODOS = 'postcare/todos/FETCH_TODOS';
 
 // Action Creators
+export const setCompleted = (id) => async () => {
+  try {
+    const response = await axios.patch(`todos/${id}/complete`);
+    console.log(response);
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
 export const getTodos = () => async (dispatch) => {
   let page = 1;
   let hasNextPage = true;

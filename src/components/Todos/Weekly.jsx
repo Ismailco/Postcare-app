@@ -1,22 +1,28 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Circle } from 'rc-progress';
 import { todayDate } from '../../constants';
+import { setCompleted } from '../../redux/slice/todos';
 
 const Weekly = ({ todos }) => {
+  const dispatch = useDispatch();
+
   const handleComplete = (e) => {
-    if (e.target.style.backgroundColor === 'green') {
-      e.target.style.backgroundColor = 'white';
-      e.target.nextSibling.style.textDecoration = 'none';
-    } else {
-      e.target.style.backgroundColor = 'green';
-      e.target.nextSibling.style.textDecoration = 'line-through';
-    }
+    console.log(e.target.id);
+    dispatch(setCompleted(e.target.id));
+    // if (e.target.style.backgroundColor === 'green') {
+    //   e.target.style.backgroundColor = 'white';
+    //   e.target.nextSibling.style.textDecoration = 'none';
+    // } else {
+    //   e.target.style.backgroundColor = 'green';
+    //   e.target.nextSibling.style.textDecoration = 'line-through';
+    // }
   };
 
   const completStatus = () => {
-    const completed = todos.filter((todo) => todo.completed === true);
+    const completed = todos.filter((todo) => todo.completed === '1');
     return {
-      complet: 0 || (completed * 100) / todos.length,
+      complete: (completed.length * 100) / todos.length,
       color: {
         0: 'red',
         20: 'yellow',
@@ -41,10 +47,10 @@ const Weekly = ({ todos }) => {
                 <div key={todo.id} className="flex w-full mb-2 items-center">
                   <label htmlFor="todo" className="flex items-start border p-2 rounded w-full">
                     <input type="checkbox" id="todo" className="hidden" />
-                    <button id={todo.id} type="button" className={`${todo.completed ? 'bg-green-700' : 'bg-gray-100'} p-2 flex items-center justify-center rounded border-2 border-gray-500 mr-2 shadow-gray-500 shadow-inner`} onClick={(e) => handleComplete(e)}>
+                    <button id={todo.slug} type="button" className={`${todo.completed === '1' ? 'bg-green-700' : 'bg-gray-100'} p-2 flex items-center justify-center rounded border-2 border-transparent mr-2 mt-1 shadow-gray-500 shadow-inner`} onClick={(e) => handleComplete(e)}>
                       <p className="text-2xl text-gray-500 hidden">✓</p>
                     </button>
-                    <div>
+                    <div className={`${todo.completed === "1" ? 'line-through' : 'no-line-through'}`}>
                       <p className={`text-gray-900 font-semibold`}>{todo.title}</p>
                       <p className={`text-gray-900 text-sm`}>{todo.description}</p>
                     </div>
@@ -52,7 +58,7 @@ const Weekly = ({ todos }) => {
                 </div>
               ))}
         </div>
-        <Circle className="hidden md:flex" percent={`${completStatus().total ? completStatus().complet : '100'}`} strokeWidth={10} style={{ width: 200, margin: 20 }} trailWidth={10} strokeColor={completStatus().total ? completStatus().color[completStatus().complet] : 'green'} />
+        <Circle className="hidden md:flex" percent={`${completStatus().total ? completStatus().complete : '100'}`} strokeWidth={10} style={{ width: 200, margin: 20 }} trailWidth={10} strokeColor={completStatus().total ? completStatus().color[completStatus().complete] : 'green'} />
       </div>
       <h2 className="text-xl font-bold my-4">Upload photo</h2>
     </article>
