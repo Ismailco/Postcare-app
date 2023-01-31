@@ -6,8 +6,7 @@ const FETCH_TODOS = 'postcare/todos/FETCH_TODOS';
 // Action Creators
 export const setCompleted = (id) => async () => {
   try {
-    const response = await axios.patch(`todos/${id}/complete`);
-    console.log(response);
+    await axios.patch(`todos/${id}/complete`);
   } catch (error) {
     throw new Error(error);
   }

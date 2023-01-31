@@ -10,13 +10,8 @@ const Daily = ({ todos }) => {
   const handleComplete = (e) => {
     console.log(e.target.id);
     dispatch(setCompleted(e.target.id));
-    // if (e.target.style.backgroundColor === 'green') {
-    //   e.target.style.backgroundColor = 'white';
-    //   e.target.nextSibling.style.textDecoration = 'none';
-    // } else {
-    //   e.target.style.backgroundColor = 'green';
-    //   e.target.nextSibling.style.textDecoration = 'line-through';
-    // }
+    e.target.style.backgroundColor = 'green';
+    e.target.nextSibling.style.textDecoration = 'line-through';
   };
 
   const completStatus = () => {

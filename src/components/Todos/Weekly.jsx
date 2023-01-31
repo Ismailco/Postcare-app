@@ -10,13 +10,8 @@ const Weekly = ({ todos }) => {
   const handleComplete = (e) => {
     console.log(e.target.id);
     dispatch(setCompleted(e.target.id));
-    // if (e.target.style.backgroundColor === 'green') {
-    //   e.target.style.backgroundColor = 'white';
-    //   e.target.nextSibling.style.textDecoration = 'none';
-    // } else {
-    //   e.target.style.backgroundColor = 'green';
-    //   e.target.nextSibling.style.textDecoration = 'line-through';
-    // }
+    e.target.style.backgroundColor = 'green';
+    e.target.nextSibling.style.textDecoration = 'line-through';
   };
 
   const completStatus = () => {
@@ -50,7 +45,7 @@ const Weekly = ({ todos }) => {
                     <button id={todo.slug} type="button" className={`${todo.completed === '1' ? 'bg-green-700' : 'bg-gray-100'} p-2 flex items-center justify-center rounded border-2 border-transparent mr-2 mt-1 shadow-gray-500 shadow-inner`} onClick={(e) => handleComplete(e)}>
                       <p className="text-2xl text-gray-500 hidden">✓</p>
                     </button>
-                    <div className={`${todo.completed === "1" ? 'line-through' : 'no-line-through'}`}>
+                    <div className={`${todo.completed === '1' ? 'line-through' : 'no-line-through'}`}>
                       <p className={`text-gray-900 font-semibold`}>{todo.title}</p>
                       <p className={`text-gray-900 text-sm`}>{todo.description}</p>
                     </div>
