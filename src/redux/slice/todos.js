@@ -11,6 +11,7 @@ export const getTodos = () => async (dispatch) => {
 
   while (hasNextPage) {
     try {
+      /* eslint-disable no-await-in-loop */
       const response = await axios.get(`patient/todos?page=${page}`);
       todos = [...todos, ...response.data.data.data];
       hasNextPage = response.data.data.current_page < response.data.data.last_page;
@@ -36,6 +37,7 @@ const initialState = {
 const todosReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_TODOS:
+      /* eslint-disable no-case-declarations */
       const today = new Date();
       const daily = action.payload.filter((todo) => isSameDay(today, new Date(todo.due_date)));
       const weekly = action.payload.filter((todo) => isSameWeek(today, new Date(todo.due_date)));

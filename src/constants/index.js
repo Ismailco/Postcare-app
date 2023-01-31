@@ -11,7 +11,6 @@ const todayDate = new Date().toLocaleDateString('en-US', {
   day: 'numeric',
 });
 
-
 const navLinks = [
   {
     id: 1,

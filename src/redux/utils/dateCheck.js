@@ -10,6 +10,7 @@ const isSameWeek = (today, dueDate) => {
   return dueDate >= firstDayOfWeek && dueDate <= lastDayOfWeek;
 };
 
-const isSameMonth = (today, dueDate) => dueDate.getMonth() === today.getMonth() && dueDate.getFullYear() === today.getFullYear();
+const isSameMonth = (today, dueDate) => dueDate.getMonth() === today.getMonth()
+                                 && dueDate.getFullYear() === today.getFullYear();
 
 export { isSameDay, isSameWeek, isSameMonth };
