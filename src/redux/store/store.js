@@ -3,9 +3,9 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import todosReducer from '../slice/todos';
 
-let middleware = [];
+let middleware = [thunk];
 if (process.env.NODE_ENV !== 'production') {
-  middleware = [thunk, logger];
+  middleware = [...middleware, logger];
 }
 
 const store = configureStore({
