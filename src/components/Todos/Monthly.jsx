@@ -3,9 +3,27 @@ import { useDispatch } from 'react-redux';
 import { Circle } from 'rc-progress';
 import { todayDate } from '../../constants';
 import { setCompleted } from '../../redux/slice/todos';
+import { useEffect, useState } from 'react';
 
 const Monthly = ({ todos }) => {
   const dispatch = useDispatch();
+  const [sortedTodos, setSortedTodos] = useState([]);
+
+  useEffect(() => {
+    const sorted = todos.sort((a, b) => new Date(a.due_date) - new Date(b.due_date));
+    setSortedTodos(sorted);
+  }, [todos]);
+
+  const groupedTodos = sortedTodos.reduce((acc, todo) => {
+    const date = new Date(todo.due_date).toLocaleDateString();
+    if (!acc[date]) {
+      acc[date] = [];
+    }
+    acc[date].push(todo);
+    return acc;
+  }, {});
+
+  const getTime = (date) => new Date(date).toLocaleTimeString();
 
   const handleComplete = (e) => {
     dispatch(setCompleted(e.target.id));
@@ -30,31 +48,37 @@ const Monthly = ({ todos }) => {
   };
 
   return (
-    <article className="flex flex-col w-full justify-start items-start h-fit mx-4">
-      <h1 className="text-2xl font-bold my-4">{todayDate}</h1>
-      <h2 className="text-xl font-bold my-4">todo list</h2>
-      <div className="flex justify-between items-start w-full">
-        <div className="w-full">
-          {todos.length === 0
-            ? 'No tasks for today check next week todos'
-            : todos.map((todo) => (
-                <div key={todo.id} className="flex w-full mb-2 items-center">
-                  <label htmlFor="todo" className="flex items-start border p-2 rounded w-full">
-                    <input type="checkbox" id="todo" className="hidden" />
-                    <button id={todo.slug} type="button" className={`${todo.completed === '1' ? 'bg-green-700' : 'bg-gray-100'} p-2 flex items-center justify-center rounded border-2 border-transparent mr-2 mt-1 shadow-gray-500 shadow-inner`} onClick={(e) => handleComplete(e)}>
-                      <p className="text-2xl text-gray-500 hidden">✓</p>
-                    </button>
-                    <div className={`${todo.completed === '1' ? 'line-through' : 'no-line-through'}`}>
-                      <p className={`text-gray-900 font-semibold`}>{todo.title}</p>
-                      <p className={`text-gray-900 text-sm`}>{todo.description}</p>
-                    </div>
-                  </label>
-                </div>
-              ))}
+    <article className="flex flex-col w-full justify-start items-start h-fit">
+      <div className="flex flex-col justify-between items-start w-full">
+        <div className="flex justify-between items-center w-full p-4 bg-light rounded-md border borger-dark font-bold">
+          <p className="w-1/4 mr-4">Check box</p>
+          <p className="w-1/2 mr-4">Tracker</p>
+          <p className="w-4/5 mr-4">Detail</p>
+          <p className="w-1/3 text-center">Time</p>
         </div>
-        <Circle className="hidden md:flex" percent={`${completStatus().total ? completStatus().complete : '100'}`} strokeWidth={10} style={{ width: 200, margin: 20 }} trailWidth={10} strokeColor={completStatus().total ? completStatus().color[completStatus().complete] : 'green'} />
+        {todos.length === 0
+          ? 'No tasks for today check next week todos'
+          : Object.entries(groupedTodos).map(([date, tasks]) => (
+              <React.Fragment key={date}>
+                <h3 className="w-full bg-[#6B7280] py-4 px-6 text-white rounded-md my-2 border border-light">{date}</h3>
+                {tasks.map((todo) => (
+                  <div key={todo.id} className="flex w-full mb-2 items-center justify-center">
+                    <label htmlFor="todo" className="flex items-center justify-between border p-4 rounded-md w-full">
+                      <input type="checkbox" id="todo" className="hidden mr-10" />
+                      <div className="w-1/4 md:1/2">
+                        <button id={todo.slug} type="button" className={`${todo.completed === '1' ? 'bg-green-700' : 'bg-white'} p-2.5 flex items-center justify-center rounded-md border border-black`} onClick={(e) => handleComplete(e)}>
+                          <p className="text-2xl text-gray-500 hidden">✓</p>
+                        </button>
+                      </div>
+                      <p className={`${todo.completed === '1' ? 'line-through' : 'no-line-through'} w-1/2 text-gray-900 font-semibold`}>{todo.title}</p>
+                      <p className={`${todo.completed === '1' ? 'line-through' : 'no-line-through'} w-4/5 md:1/2 text-gray-900 text-sm`}>{todo.description}</p>
+                      <p className={`${todo.completed === '1' ? 'line-through' : 'no-line-through'} w-1/3 text-center text-gray-900 text-sm`}>{getTime(todo.due_date)}</p>
+                    </label>
+                  </div>
+                ))}
+              </React.Fragment>
+            ))}
       </div>
-      <h2 className="text-xl font-bold my-4">Upload photo</h2>
     </article>
   );
 };
