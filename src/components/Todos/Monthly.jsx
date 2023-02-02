@@ -28,22 +28,6 @@ const Monthly = ({ todos }) => {
     e.target.nextSibling.style.textDecoration = 'line-through';
   };
 
-  const completStatus = () => {
-    const completed = todos.filter((todo) => todo.completed === '1');
-    return {
-      complete: (completed.length * 100) / todos.length,
-      color: {
-        0: 'red',
-        20: 'yellow',
-        40: 'magenta',
-        50: 'orange',
-        70: 'blue',
-        100: 'green',
-      },
-      total: todos.length,
-    };
-  };
-
   return (
     <article className="flex flex-col w-full justify-start items-start h-fit">
       <div className="flex flex-col justify-between items-start w-full">

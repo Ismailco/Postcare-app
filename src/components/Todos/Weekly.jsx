@@ -58,7 +58,10 @@ const Weekly = ({ todos }) => {
                 </div>
               ))}
         </div>
-        <Circle className="hidden md:flex" percent={`${completStatus().total ? completStatus().complete : '100'}`} strokeWidth={10} style={{ width: 200, margin: 20 }} trailWidth={10} strokeColor={completStatus().total ? completStatus().color[completStatus().complete] : 'green'} />
+        <div className="">
+          <Circle className="hidden md:block" percent={`${completStatus().total ? completStatus().complete : '100'}`} strokeWidth={10} style={{ width: 200, margin: 20 }} trailWidth={10} strokeColor={completStatus().total ? completStatus().color[completStatus().complete] : 'green'} />
+          <p className="hidden md:block text-center text-2xl font-bold relative -top-32 left-1.5">{completStatus().total ? `${Math.round(completStatus().complete)}%` : '100%'}</p>
+        </div>
       </div>
       <h2 className="text-xl font-bold my-4">Upload photo</h2>
     </article>
