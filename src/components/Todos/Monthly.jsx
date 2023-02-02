@@ -1,7 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Circle } from 'rc-progress';
-import { todayDate } from '../../constants';
+import { getTime } from '../../constants';
 import { setCompleted } from '../../redux/slice/todos';
 import { useEffect, useState } from 'react';
 
@@ -22,8 +21,6 @@ const Monthly = ({ todos }) => {
     acc[date].push(todo);
     return acc;
   }, {});
-
-  const getTime = (date) => new Date(date).toLocaleTimeString();
 
   const handleComplete = (e) => {
     dispatch(setCompleted(e.target.id));
