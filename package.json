@@ -20,7 +20,8 @@
     "react-router-dom": "^6.6.2",
     "redux": "^4.2.0",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.4.2"
+    "redux-thunk": "^2.4.2",
+    "stylelint-config-standard": "^29.0.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.19.1",
