@@ -5,6 +5,8 @@ import whiteLogo from './logos/logo-white.svg';
 import blueLogo from './logos/logo-blue.svg';
 import logo from './logos/logo.svg';
 import hero from './hero.webp';
+import checkmark from './Checkmark.webp';
+import BG from './BG.webp';
 
 // import React, { Suspense, lazy } from 'react';
 
@@ -31,5 +33,5 @@ import hero from './hero.webp';
 // export default PreloadedImages;
 
 export {
-  N404, offline, profile, whiteLogo, blueLogo, logo, hero,
+  N404, offline, profile, whiteLogo, blueLogo, logo, hero, checkmark, BG,
 };
