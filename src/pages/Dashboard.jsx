@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { profile } from '../assets/img/index';
 import { userName } from '../constants';
 import { getTodos } from '../redux/slice/todos';
-import { Daily } from '../components/Todos';
+import { Monthly } from '../components/Todos';
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -97,9 +97,10 @@ const Dashboard = () => {
           </table>
         </div>
       </section>
-      <article className="my-6">
-        <div className={"flex justify-center items-center my-4 rounded-xl min-h-full w-full border"}>
-          <Daily todos={todos.daily} />
+      <article className="my-6 xl:ml-6">
+        <h2 className="text-xl font-bold">Recovery Instructions</h2>
+        <div className={'flex justify-center items-center rounded-xl min-h-full w-full'}>
+          <Monthly todos={todos.monthly} />
         </div>
       </article>
     </main>

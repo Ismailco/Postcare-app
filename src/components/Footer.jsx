@@ -7,7 +7,7 @@ const Footer = () => (
   <footer className="w-full leading-8 p-4 bottom-0 bg-primary text-dark md:text-white font-medium">
     <div className="flex flex-col md:flex-row justify-center font-bold items-start">
       <Link to="/" className="w-full">
-        <img className="w-36 h-20 bg-gray-400" src={whiteLogo} alt="logo" />
+        <img className="w-36 h-20" src={whiteLogo} alt="logo" />
       </Link>
       <ul className="flex flex-col mr-20 w-56">
         {footerLinksOne.map((link, index) => (

@@ -21,8 +21,7 @@ const ToDoList = () => {
   return (
     <main className="flex flex-col p-4 w-full">
       <section className="my-6 xl:ml-6">
-        <h1 className="text-2xl font-bold mb-4">To Do List</h1>
-        <p>Your secure, online, healthcare tracking site. Helping you manage your personal health information with your practices, anytime and anywhere.</p>
+        <h1 className="text-2xl font-bold mb-4">Recovery Plan</h1>
       </section>
       <section className="my-6 xl:ml-6">
         <article className="flex justify-end items-center">
@@ -37,13 +36,13 @@ const ToDoList = () => {
           </button>
         </article>
         <article className="my-6">
-          <div className={`${activeBtn === 'daily-btn' ? 'block' : 'hidden'} flex justify-center items-center my-4 rounded-xl min-h-full w-full border`}>
+          <div className={`${activeBtn === 'daily-btn' ? 'block' : 'hidden'} flex justify-center items-center my-4 rounded-xl min-h-full w-full`}>
             <Daily todos={todos.daily} />
           </div>
-          <div className={`${activeBtn === 'weekly-btn' ? 'block' : 'hidden'} flex justify-center items-center my-4 rounded-xl min-h-full w-full border`}>
+          <div className={`${activeBtn === 'weekly-btn' ? 'block' : 'hidden'} flex justify-center items-center my-4 rounded-xl min-h-full w-full`}>
             <Weekly todos={todos.weekly} />
           </div>
-          <div className={`${activeBtn === 'monthly-btn' ? 'block' : 'hidden'} flex justify-center items-center my-4 rounded-xl min-h-full w-full border`}>
+          <div className={`${activeBtn === 'monthly-btn' ? 'block' : 'hidden'} flex justify-center items-center my-4 rounded-xl min-h-full w-full`}>
             <Monthly todos={todos.monthly} />
           </div>
         </article>

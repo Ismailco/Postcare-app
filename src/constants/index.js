@@ -11,6 +11,7 @@ const todayDate = new Date().toLocaleDateString('en-US', {
   day: 'numeric',
 });
 
+const getTime = (date) => new Date(date).toLocaleTimeString();
 
 const navLinks = [
   {
@@ -159,6 +160,7 @@ export {
   AppName,
   user,
   todayDate,
+  getTime,
   userName,
   navLinks,
   navigationLinks,
