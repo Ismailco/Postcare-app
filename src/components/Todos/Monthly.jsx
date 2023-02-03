@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getTime } from '../../constants';
 import { setCompleted } from '../../redux/slice/todos';
-import { useEffect, useState } from 'react';
 
 const Monthly = ({ todos }) => {
   const dispatch = useDispatch();
@@ -40,10 +39,10 @@ const Monthly = ({ todos }) => {
         {todos.length === 0
           ? 'No tasks for today check next week todos'
           : Object.entries(groupedTodos).map(([date, tasks]) => (
-              <React.Fragment key={date}>
+              <React.Fragment key={`${date} monthly`}>
                 <h3 className="w-full bg-[#6B7280] py-4 px-6 text-white rounded-md my-2 border border-light">{date}</h3>
                 {tasks.map((todo) => (
-                  <div key={todo.id} className="flex w-full mb-2 items-center justify-center">
+                  <div key={`${todo.id} monthly`} className="flex w-full mb-2 items-center justify-center">
                     <label htmlFor="todo" className="flex items-center justify-between border p-4 rounded-md w-full">
                       <input type="checkbox" id="todo" className="hidden mr-10" />
                       <div className="w-1/4 md:1/2">
