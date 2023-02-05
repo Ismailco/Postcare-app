@@ -4,9 +4,17 @@ import profile from './profile.png';
 import whiteLogo from './logos/logo-white.svg';
 import blueLogo from './logos/logo-blue.svg';
 import logo from './logos/logo.svg';
-import hero from './hero.webp';
-import checkmark from './Checkmark.webp';
-import BG from './BG.webp';
+import hero from './landing/hero.webp';
+import checkmark from './landing/Checkmark.webp';
+import BG from './landing/BG.webp';
+import iphone from './landing/iPhone.webp';
+import downloads from './landing/downloads.webp';
+import heart from './landing/heart.webp';
+import treatment from './landing/treatment.webp';
+import users from './landing/users.webp';
+import customer1 from './landing/customer1.webp';
+import customer2 from './landing/customer2.webp';
+import customer3 from './landing/customer3.webp';
 
 // import React, { Suspense, lazy } from 'react';
 
@@ -33,5 +41,5 @@ import BG from './BG.webp';
 // export default PreloadedImages;
 
 export {
-  N404, offline, profile, whiteLogo, blueLogo, logo, hero, checkmark, BG,
+  N404, offline, profile, whiteLogo, blueLogo, logo, hero, checkmark, BG, downloads, heart, treatment, users, iphone, customer1, customer2, customer3,
 };
