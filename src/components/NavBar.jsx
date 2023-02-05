@@ -25,7 +25,7 @@ const NavBar = () => {
           ))}
       </ul>
       {logedIn && (
-        <button onClick={handdleLogout} className={`mr-2 hover:bg-secondary bg-accent-100 mr-4 text-white rounded-full p-2 duration-500`}>
+        <button onClick={handdleLogout} className={`mr-2 hover:bg-secondary bg-accent-100 mr-4 text-white rounded-full p-2 duration-500 font-bold`}>
           SIGN OUT
         </button>
       )}
