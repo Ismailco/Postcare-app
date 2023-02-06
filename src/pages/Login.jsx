@@ -33,6 +33,7 @@ const Login = () => {
   };
 
   useEffect(() => {
+    document.title = 'Login';
     const token = localStorage.getItem('token');
     if (token && token !== 'null') {
       navigate('/dashboard');

@@ -50,6 +50,7 @@ const Signup = () => {
   };
 
   useEffect(() => {
+    document.title = 'Signup';
     const token = localStorage.getItem('token');
     if (token && token !== 'null') {
       navigate('/dashboard');

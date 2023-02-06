@@ -3,16 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { profile } from '../assets/img/index';
 import { userName } from '../constants';
-import { getTodos } from '../redux/slice/todos';
-import { Monthly } from '../components/Todos';
+import { getRecovery } from '../redux/slice/recovery';
 
 const Dashboard = () => {
   const dispatch = useDispatch();
-  const todos = useSelector((state) => state.todos);
+  const recovery = useSelector((state) => state.recovery.recovery);
 
   useEffect(() => {
-    document.title = 'Dashboard - Postcare';
-    dispatch(getTodos());
+    document.title = 'Dashboard';
+    dispatch(getRecovery());
   }, []);
 
   return (
@@ -99,9 +98,15 @@ const Dashboard = () => {
       </section>
       <article className="my-6 xl:ml-6">
         <h2 className="text-xl font-bold">Recovery Instructions</h2>
-        <div className={'flex justify-center items-center rounded-xl min-h-full w-full'}>
-          <Monthly todos={todos.monthly} />
-        </div>
+        <ul className={'flex justify-center items-center rounded-xl min-h-full w-full'}>
+          {recovery.length === 0
+            ? 'No tasks for today check next week todos'
+            : recovery.map((item) => (
+                <li key={item.id} className="w-full my-2 hover:underline bg-light rounded-md text-left border borger-dark font-bold">
+                  <button className="w-full p-4 hover:underline text-left">{item.tracker}</button>
+                </li>
+              ))}
+        </ul>
       </article>
     </main>
   );

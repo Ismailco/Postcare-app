@@ -14,7 +14,7 @@ const ToDoList = () => {
   };
 
   useEffect(() => {
-    document.title = 'Todo lists - Postcare';
+    document.title = 'Todo lists';
     dispatch(getTodos());
   }, []);
 
