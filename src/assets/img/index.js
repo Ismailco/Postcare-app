@@ -41,5 +41,7 @@ import customer3 from './landing/customer3.webp';
 // export default PreloadedImages;
 
 export {
-  N404, offline, profile, whiteLogo, blueLogo, logo, hero, checkmark, BG, downloads, heart, treatment, users, iphone, customer1, customer2, customer3,
+  N404, offline, profile, whiteLogo, blueLogo, logo,
+  hero, checkmark, BG, downloads, heart, treatment,
+  users, iphone, customer1, customer2, customer3,
 };
