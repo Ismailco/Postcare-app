@@ -50,6 +50,7 @@ const Signup = () => {
   };
 
   useEffect(() => {
+    document.title = 'Signup';
     const token = localStorage.getItem('token');
     if (token && token !== 'null') {
       navigate('/dashboard');
@@ -57,54 +58,54 @@ const Signup = () => {
   }, []);
 
   return (
-    <div className="flex justify-center items-center w-full py-20">
-      <section className="rounded flex flex-col border border-[#111827] lg:w-1/3 w-4/5 m-4 p-4">
-        <div className="flex flex-col justify-center items-center bg-[#F9FAFB]">
+    <div className="flex justify-center items-center w-full py-10">
+      <section className="rounded-md flex flex-col border border-2 border-primary md:w-1/2 xl:w-1/3 w-96 m-4 p-4">
+        <div className="flex flex-col justify-center items-center">
           <h1 className="font-bold text-2xl my-2">Sign up</h1>
           <p>Create an account</p>
         </div>
         <div className="flex justify-center items-center">
           <img className="my-6" src={profile_pic} alt="profile" />
         </div>
-        <form className="flex flex-col my-4" onSubmit={(e) => handleSubmit(e)}>
+        <form className="flex flex-col my-2" onSubmit={(e) => handleSubmit(e)}>
           <label className="text-[#374151]" htmlFor="firstName">
             First Name
           </label>
-          <input required className="border border-[#111827] p-2 mb-4" type="name" id="firstName" placeholder="John" />
+          <input required className="border border-[#111827] rounded-md p-2 mb-4" type="name" id="firstName" placeholder="John" />
           <label className="text-[#374151]" htmlFor="lastName">
             Last Name
           </label>
-          <input required className="border border-[#111827] p-2 mb-4" type="name" id="lastName" placeholder="Smith" />
+          <input required className="border border-[#111827] rounded-md p-2 mb-4" type="name" id="lastName" placeholder="Smith" />
           <label className="text-[#374151]" htmlFor="email">
             Email address
           </label>
-          <input required className="border border-[#111827] p-2 mb-4" type="email" id="email" placeholder="example@gmail.com" />
+          <input required className="border border-[#111827] rounded-md p-2 mb-4" type="email" id="email" placeholder="example@gmail.com" />
           <label className="text-[#374151]" htmlFor="password">
             Password
           </label>
-          <input required className="border border-[#111827] p-2 mb-4" type="password" id="password" placeholder="**************" />
+          <input required className="border border-[#111827] rounded-md p-2 mb-4" type="password" id="password" placeholder="**************" />
           <label className="text-[#374151]" htmlFor="passwordConfirmation">
             Confirm Password
           </label>
-          <input required className="border border-[#111827] p-2 mb-4" type="password" id="passwordConfirmation" placeholder="**************" />
+          <input required className="border border-[#111827] rounded-md p-2 mb-4" type="password" id="passwordConfirmation" placeholder="**************" />
           <p className={`${passValid ? 'hidden' : 'block'} text-accent-100`}>
             <i className="fas fa-circle-small fa-sm pr-2"></i>Password and password confirmation do not match
           </p>
           <p className={`${passLength ? 'hidden' : 'block'} text-accent-100`}>
             <i className="fas fa-circle-small fa-sm pr-2"></i>The password must be at least 8 characters.
           </p>
-          <button className="bg-[#bbb] p-2 my-4 text-white" type="submit">
-            Create Account
+          <button className="bg-primary rounded-full font-bold p-2 mt-4 text-white" type="submit">
+            CREATE ACCOUNT
           </button>
         </form>
 
         <p className="text-[#374151]">
           By signing up, you agree to our{' '}
-          <Link to={footerLinksThree[0].path} className="underline">
+          <Link to={footerLinksThree[0].path} className="underline text-[#46b2e0]">
             Terms of Conditions
           </Link>{' '}
           and{' '}
-          <Link to={footerLinksThree[0].path} className="underline">
+          <Link to={footerLinksThree[0].path} className="underline text-[#46b2e0]">
             Privacy Policy
           </Link>
         </p>

@@ -16,12 +16,12 @@ const getTime = (date) => new Date(date).toLocaleTimeString();
 const navLinks = [
   {
     id: 1,
-    name: 'Sign in',
+    name: 'SIGN IN',
     path: '/login',
   },
   {
     id: 2,
-    name: 'Get started',
+    name: 'GET STARTED',
     path: '/signup',
   },
 ];
