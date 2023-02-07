@@ -1,8 +1,37 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import { profile } from '../assets/img';
+import { getMessages, sendMessage } from '../redux/slice/messanger';
+import { getTime } from '../constants';
 
 const Chat = () => {
+  const dispatch = useDispatch();
+  const messages = useSelector((state) => state.messages.messages);
+
+  useEffect(() => {
+    document.title = 'Chat';
+    dispatch(getMessages());
+  }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { text, image } = e.target.elements;
+
+    const data = {
+      message: text.value,
+      image: image.value,
+      id: 3,
+    };
+
+    if (text.value.length !== 0) {
+      dispatch(sendMessage(data.message, data.id));
+      text.value = '';
+      image.value = '';
+    }
+    dispatch(getMessages());
+  };
+
   return (
     <main className="flex mb-10 justify-between items-center flex-col w-full h-screen">
       <section className="px-9 flex justify-between items-center w-full bg-white h-20 border-b border-dark/20">
@@ -16,69 +45,28 @@ const Chat = () => {
         <i className="far fa-video fa-xl cursor-pointer active:text-black/40 text-black hover:text-black/70 active:text-dark"></i>
       </section>
       <section className="my-6 w-full h-full flex flex-col">
-        <p className="text-center text-white">8/20/2022</p>
-        <div className="pation-message py-2 mx-2 flex flex-row-reverse justify-start items-start text-white">
-          {/* <div className="flex"> */}
-          {/* <i className="fas fa-triangle text-light rotate-6 h-4 w-9"></i> */}
-          <div className="mr-2 p-2 bg-[#007aff] rounded-xl flex flex-col">
-            <p className="">Labore et dolore magna aliqua.</p>
-            <p className="self-end text-white/70">11:34 PM</p>
-            {/* </div> */}
-          </div>
-        </div>
-        <div className="pation-message py-2 mx-2 flex flex-row-reverse justify-start items-start text-white">
-          {/* <div className="flex"> */}
-          {/* <i className="fas fa-triangle text-light rotate-6 h-4 w-9"></i> */}
-          <div className="mr-2 p-2 bg-[#007aff] rounded-xl flex flex-col">
-            <p className="">Duis aute irure dolor inereprehenderit in voluptate.</p>
-            <p className="self-end text-white/70">11:34 PM</p>
-            {/* </div> */}
-          </div>
-        </div>
-        <div className="prov-message py-2 mx-2 flex justify-start items-start items-start max-w-xs md:max-w-xl">
-          <img src={profile} alt="profile" className="w-8 h-8 rounded-full" />
-          {/* <div className="flex"> */}
-          {/* <i className="fas fa-triangle text-light rotate-6 h-4 w-9"></i> */}
-          <div className="ml-2 p-2 bg-light rounded-xl flex flex-col">
-            <p className="">Sed ut perspiciatis omnis?</p>
-            <p className="self-end text-black/70">11:34 PM</p>
-            {/* </div> */}
-          </div>
-        </div>
-        <div className="pation-message py-2 mx-2 flex flex-row-reverse justify-start items-start text-white">
-          {/* <div className="flex"> */}
-          {/* <i className="fas fa-triangle text-light rotate-6 h-4 w-9"></i> */}
-          <div className="mr-2 p-2 bg-[#007aff] rounded-xl flex flex-col">
-            <p className="">Excepteur sint occaecat?</p>
-            <p className="self-end text-white/70">11:34 PM</p>
-            {/* </div> */}
-          </div>
-        </div>
-        <div className="prov-message py-2 mx-2 flex justify-start items-start items-start max-w-xs md:max-w-xl">
-          <img src={profile} alt="profile" className="w-8 h-8 rounded-full" />
-          {/* <div className="flex"> */}
-          {/* <i className="fas fa-triangle text-light rotate-6 h-4 w-9"></i> */}
-          <div className="ml-2 p-2 bg-light rounded-xl flex flex-col">
-            <p className="">Nemo enim ipsam voluptatem.</p>
-            <p className="self-end text-black/70">11:34 PM</p>
-            {/* </div> */}
-          </div>
-        </div>
-        <div className="prov-message py-2 mx-2 flex justify-start items-start items-start max-w-xs md:max-w-xl">
-          <img src={profile} alt="profile" className="w-8 h-8 rounded-full" />
-          {/* <div className="flex"> */}
-          {/* <i className="fas fa-triangle text-light rotate-6 h-4 w-9"></i> */}
-          <div className="ml-2 p-2 bg-light rounded-xl flex flex-col">
-            <p className="">Excepteur sint occaecat?</p>
-            <p className="self-end text-black/70">11:34 PM</p>
-            {/* </div> */}
-          </div>
-        </div>
+        <p className="text-center text-dark">8/20/2022</p>
+        {messages.length === 0 ? (
+          <p className="text-center text-dark">No messages</p>
+        ) : (
+          messages.map((message) => (
+            <div key={message.id} className={`${message.from_id === '4' ? 'flex-row' : 'flex-row-reverse'} py-2 mx-2 flex justify-start items-start`}>
+              <img src={profile} alt="profile" className="w-8 h-8 rounded-full" />
+              <div className={`${message.from_id === '4' ? 'ml-2 bg-light' : 'mr-2 bg-[#007aff]'} p-2 rounded-xl flex flex-col`}>
+                <p className={`${message.from_id === '4' ? 'text-black' : 'text-white'}`}>{message.text}</p>
+                <p className={`${message.from_id === '4' ? 'text-black/70' : 'text-white/70'} self-end`}>{getTime(message.updated_at)}</p>
+              </div>
+            </div>
+          ))
+        )}
       </section>
       {/* need some work to break the input into multiple lines */}
       <section className="mb-10 w-[90%] p-6 px-10 rounded-2xl flex justify-between items-center items-end bg-light text[#e5e5ea]">
         <i className="far fa-camera fa-xl cursor-pointer active:text-black/40 text-black hover:text-black/70 active:text-dark"></i>
-        <input type="text" className="focus:outline-none bg-light w-full px-4 " placeholder="Start typing..." />
+        <form onSubmit={handleSubmit} className="flex justify-between items-center w-full">
+          <input type="text" name="text" className="focus:outline-none bg-light w-full px-4" placeholder="Start typing..." />
+          <input type="file" name="image" className="hidden" />
+        </form>
         <i className="far fa-paper-plane-top fa-xl cursor-pointer active:text-black/40 text-black hover:text-black/70 active:text-dark"></i>
       </section>
     </main>

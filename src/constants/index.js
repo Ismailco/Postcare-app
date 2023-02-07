@@ -11,8 +11,22 @@ const todayDate = new Date().toLocaleDateString('en-US', {
   day: 'numeric',
 });
 
-const getTime = (date) => new Date(date).toLocaleTimeString();
+const getTime = (date) =>
+  new Date(date).toLocaleTimeString('en-US', {
+    hour: 'numeric',
+    minute: 'numeric',
+  });
 
+// provider info this just dummy data
+const med_provider = {
+  id: 3,
+  first_name: 'PostCare',
+  last_name: 'Provider',
+  email: 'provider@postcare.com',
+  email_verified_at: null,
+  created_at: '2023-02-03T14:51:49.000000Z',
+  updated_at: '2023-02-03T14:51:49.000000Z',
+};
 const navLinks = [
   {
     id: 1,
@@ -174,4 +188,5 @@ export {
   NOT_FOUND,
   SERVER_ERROR,
   SERVICE_UNAVAILABLE,
+  med_provider,
 };
