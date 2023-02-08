@@ -19,6 +19,7 @@ const Login = () => {
           if (res.status) {
             localStorage.setItem('user', JSON.stringify(res.data.data.patient));
             localStorage.setItem('token', JSON.stringify(res.data.data.token));
+            localStorage.setItem('streamToken', JSON.stringify(res.data.data.stream_token));
           } else {
             console.log(res.errors);
           }

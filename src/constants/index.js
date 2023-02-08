@@ -4,6 +4,7 @@
 
 const AppName = 'Postcare';
 const user = JSON.parse(localStorage.getItem('user'));
+const streamToken = JSON.parse(localStorage.getItem('streamToken'));
 const userName = user ? `${user.first_name} ${user.last_name}` : '';
 const todayDate = new Date().toLocaleDateString('en-US', {
   year: 'numeric',
@@ -27,6 +28,7 @@ const med_provider = {
   created_at: '2023-02-03T14:51:49.000000Z',
   updated_at: '2023-02-03T14:51:49.000000Z',
 };
+
 const navLinks = [
   {
     id: 1,
@@ -173,6 +175,8 @@ const SERVICE_UNAVAILABLE = 'Service unavailable. Please try again later';
 export {
   AppName,
   user,
+  streamToken,
+  med_provider,
   todayDate,
   getTime,
   userName,
@@ -188,5 +192,4 @@ export {
   NOT_FOUND,
   SERVER_ERROR,
   SERVICE_UNAVAILABLE,
-  med_provider,
 };
