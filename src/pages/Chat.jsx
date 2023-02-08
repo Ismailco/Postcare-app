@@ -12,6 +12,10 @@ const Chat = () => {
   useEffect(() => {
     document.title = 'Chat';
     dispatch(getMessages());
+    // This will work but it's not good for performance and it will cause a lot of requests to the server
+    // setInterval(() => {
+    //   dispatch(getMessages());
+    // }, 1000);
   }, []);
 
   const handleSubmit = (e) => {
@@ -19,17 +23,16 @@ const Chat = () => {
     const { text, image } = e.target.elements;
 
     const data = {
-      message: text.value,
+      text: text.value,
       image: image.value,
       id: 3,
     };
 
     if (text.value.length !== 0) {
-      dispatch(sendMessage(data.message, data.id));
+      dispatch(sendMessage(data.text, data.id));
       text.value = '';
       image.value = '';
     }
-    dispatch(getMessages());
   };
 
   return (
@@ -44,7 +47,7 @@ const Chat = () => {
         </div>
         <i className="far fa-video fa-xl cursor-pointer active:text-black/40 text-black hover:text-black/70 active:text-dark"></i>
       </section>
-      <section className="my-6 w-full h-full flex flex-col">
+      <section className="my-6 w-full h-full flex flex-col overflow-scroll">
         <p className="text-center text-dark">8/20/2022</p>
         {messages.length === 0 ? (
           <p className="text-center text-dark">No messages</p>
