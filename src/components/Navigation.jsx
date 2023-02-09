@@ -22,8 +22,8 @@ const Navigation = () => {
   }, []);
 
   return (
-    <div className="fixed top-0 min-h-full xl:static flex justify-start items-start bg-[#6B7280] text-white">
-      <nav className={`${open ? 'md:w-96' : 'md:w-0'} duration-200`}>
+    <div className="z-10 fixed top-0 min-h-full xl:static flex justify-start items-start bg-[#6B7280] text-white">
+      <nav className={`${open ? 'w-screen md:w-96' : 'w-0'} duration-300`}>
         <ul className={` ${open ? 'flex' : 'hidden'} flex flex-col justify-between items-between m-10`}>
           {navigationLinks.map((link) => (
             <li key={link.id} className={`${currentLocation.includes(link.path) ? 'bg-secondary' : ''} my-2 duration-500 hover:bg-secondary p-4 rounded-md font-bold`}>
@@ -36,7 +36,8 @@ const Navigation = () => {
         </ul>
       </nav>
       <button className={`${open ? 'top-0' : 'top-20 xl:top-0'} h-0 w-0 outline-none relative`} onClick={toggleMenu}>
-        <i className={`${open ? 'fas fa-angles-left -left-9 rounded-l-3xl' : 'fas fa-angles-right -left-2 rounded-r-3xl'} duration-300 relative cursor-pointer text-black text-xl p-2 duration-500`}></i>
+        <i className={`${open ? 'fas fa-angles-left -left-9 rounded-l-3xl' : 'fas fa-angles-right -left-2 rounded-r-3xl'} duration-300 relative cursor-pointer text-black text-xl p-2 duration-500 hidden xl:block`}></i>
+        <i className={`${open ? 'fas fa-angles-left -left-9 rounded-l-3xl' : 'fas fa-bars text-2xl -left-4 py-1 text-center -top-16 rounded-md bg-primary/90'} relative cursor-pointer xl:text-black p-2 text-xl block xl:hidden`}></i>
       </button>
     </div>
   );

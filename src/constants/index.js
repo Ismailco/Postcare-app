@@ -12,6 +12,15 @@ const todayDate = new Date().toLocaleDateString('en-US', {
   day: 'numeric',
 });
 
+const getTimeAndDate = (date) =>
+  new Date(date).toLocaleString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+  });
+
 const getTime = (date) =>
   new Date(date).toLocaleTimeString('en-US', {
     hour: 'numeric',
@@ -179,6 +188,7 @@ export {
   med_provider,
   todayDate,
   getTime,
+  getTimeAndDate,
   userName,
   navLinks,
   navigationLinks,

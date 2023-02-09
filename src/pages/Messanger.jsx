@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getTime, med_provider, user, streamToken } from '../constants';
+import { getTime, user, streamToken } from '../constants';
 import { StreamChat } from 'stream-chat';
 
 const Messanger = () => {
@@ -10,7 +10,7 @@ const Messanger = () => {
   const userData = {
     id: `${user.first_name}-${user.id}`,
     name: `${user.first_name} ${user.last_name}`,
-    image: 'https://getstream.io/random_png/?id=4&name=Jhon',
+    image: `https://getstream.io/random_png/?id=4&name=${user.first_name}`,
   };
 
   useEffect(() => {
@@ -19,10 +19,12 @@ const Messanger = () => {
     async function init() {
       const client = StreamChat.getInstance(apiKey);
       await client.connectUser(userData, streamToken);
-      const channel = client.channel('messaging', 'postcare-1');
-      channel.query('last_message').then((data) => {
-        console.log(data);
-        setMessages(data.messages[data.messages.length - 1]);
+      const channel = client.channel('messaging', `${user.first_name}${user.last_name}-${user.id}`);
+      channel.query().then((data) => {
+        const lastMessage = data.messages.reverse().find((message) => message.user.name === data.channel.created_by.name);
+        if (lastMessage) {
+          setMessages(lastMessage);
+        }
       });
     }
     init();
