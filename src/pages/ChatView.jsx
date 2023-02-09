@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react';
 import { StreamChat } from 'stream-chat';
 import { Chat, Channel, ChannelHeader, MessageInput, MessageList, Thread, LoadingIndicator, Window } from 'stream-chat-react';
 import { user, streamToken } from '../constants';
+import 'stream-chat-react/dist/css/v2/index.css';
 
 const ChatView = () => {
   const apiKey = import.meta.env.VITE_APP_STREAM_API_KEY;
@@ -23,7 +24,7 @@ const ChatView = () => {
     async function init() {
       const client = StreamChat.getInstance(apiKey);
       await client.connectUser(userData, streamToken);
-      const channel = client.channel('messaging', 'postcare-2', {
+      const channel = client.channel('messaging', 'postcare-1', {
         name: 'PostCare',
       });
 

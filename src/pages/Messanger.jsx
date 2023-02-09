@@ -1,18 +1,31 @@
 import React from 'react';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getTime, med_provider } from '../constants';
-import { profile } from '../assets/img/index';
-import { getUnreadMessages } from '../redux/slice/messanger';
+import { getTime, med_provider, user, streamToken } from '../constants';
+import { StreamChat } from 'stream-chat';
 
 const Messanger = () => {
-  const dispatch = useDispatch();
-  const messages = useSelector((state) => state.messages.unreadMessages);
+  const [messages, setMessages] = useState([]);
+  const apiKey = import.meta.env.VITE_APP_STREAM_API_KEY;
+  const userData = {
+    id: `${user.first_name}-${user.id}`,
+    name: `${user.first_name} ${user.last_name}`,
+    image: 'https://getstream.io/random_png/?id=4&name=Jhon',
+  };
 
   useEffect(() => {
-    dispatch(getUnreadMessages());
     document.title = 'Messanger';
+
+    async function init() {
+      const client = StreamChat.getInstance(apiKey);
+      await client.connectUser(userData, streamToken);
+      const channel = client.channel('messaging', 'postcare-1');
+      channel.query('last_message').then((data) => {
+        console.log(data);
+        setMessages(data.messages[data.messages.length - 1]);
+      });
+    }
+    init();
   }, []);
   return (
     <main className="flex flex-col p-4 w-full">
@@ -21,28 +34,26 @@ const Messanger = () => {
         <p>Your secure, online, healthcare tracking site. Helping you manage your personal health information with your practices, anytime and anywhere.</p>
       </section>
       <section className="flex flex-col justify-start items-center xl:items-start my-6 xl:ml-6">
-        <ul className="w-full">
-          {messages.length === 0
-            ? 'no message'
-            : messages.unreadMsgs.map((message) => (
-                <li key={message.created_at} className="w-full">
-                  <article className="flex flex-col md:flex-row justify-between items-center border p-4">
-                    <img className="rounded-full mr-4" src={profile} alt="profile" />
-                    <div className="flex flex-col justify-center items-center md:items-start text-center md:text-start md:w-3/4 md:mr-4">
-                      {/* The link redirect to the Chat of the specefic provider (change it later) */}
-                      <Link to="/messanger/1">
-                        <h2 className="text-xl font-bold hover:underline">John Doe - {message.from_id}</h2>
-                      </Link>
-                      <p>{message.text}</p>
-                    </div>
-                    <div className="flex md:flex-col self-end md:self-start mt-4">
-                      <p className="mr-2 md:mr-0 md:mb-2 text-dark font-bold text-sm">{getTime(message.created_at)}</p>
-                      <p className="px-2 w-fit bg-dark rounded-full font-bold">{messages.unreadMsgsCount}</p>
-                    </div>
-                  </article>
-                </li>
-              ))}
-        </ul>
+        {messages.length === 0 ? (
+          'no message'
+        ) : (
+          <article className="flex flex-col md:flex-row justify-between items-center border p-4 w-full">
+            <img className="rounded-full mr-4 w-20 h-20" src={messages.user.image} alt="profile" />
+            <div className="flex flex-col justify-center items-center md:items-start text-center md:text-start md:w-3/4 md:mr-4">
+              <Link to="/messanger/1">
+                <h2 className="text-xl font-bold hover:underline">{messages.user.name}</h2>
+              </Link>
+              <p>{messages.text}</p>
+            </div>
+            <div className="flex md:flex-col self-end md:self-start mt-4">
+              <p className="mr-2 md:mr-0 md:mb-2 text-dark font-bold text-sm">{getTime(messages.updated_at)}</p>
+              {/* <p className="px-2 w-fit bg-dark rounded-full font-bold">{messages.unreadMsgsCount}</p> */}
+            </div>
+          </article>
+        )}
+        {/* </li> */}
+        {/* ))}
+        </ul> */}
       </section>
     </main>
   );
