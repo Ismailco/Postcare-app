@@ -13,7 +13,7 @@ const Dashboard = () => {
     document.title = 'Dashboard';
     dispatch(getRecovery());
   }, []);
-
+  
   return (
     <main className="flex flex-col p-4 w-full">
       <section className="my-6 xl:ml-6">

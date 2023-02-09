@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { NavBar, Footer, ProtectedRoutes } from './components';
-import { Landing, Login, NotFound404, Signup, Dashboard, Profile, Messanger, ToDoList, Chat } from './pages';
+import { Landing, Login, NotFound404, Signup, Dashboard, Profile, Messanger, ToDoList, ChatView } from './pages';
 
 const App = () => (
   <div className="w-full">
@@ -16,7 +16,7 @@ const App = () => (
           <Route exact path="/dashboard" element={<Dashboard />} />
           <Route exact path="/profile" element={<Profile />} />
           <Route exact path="/messanger" element={<Messanger />} />
-          <Route exact path="/messanger/1" element={<Chat />} />
+          <Route exact path="/messanger/1" element={<ChatView />} />
           <Route exact path="/todo" element={<ToDoList />} />
         </Route>
       </Routes>

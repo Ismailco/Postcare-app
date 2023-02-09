@@ -11,7 +11,7 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="w-full h-[80px] flex px-2 md:px-6 justify-between items-center bg-primary font-medium">
+    <nav className="w-full h-[80px] flex px-6 md:px-6 justify-between items-center bg-primary font-medium">
       <Link to="/">
         <img className="hidden md:block w-36 h-10 ml-5" src={whiteLogo} alt="logo" />
         <img className="md:hidden w-20 h-10" src={logo} alt="logo" />

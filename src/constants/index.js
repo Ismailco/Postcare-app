@@ -4,6 +4,7 @@
 
 const AppName = 'Postcare';
 const user = JSON.parse(localStorage.getItem('user'));
+const streamToken = JSON.parse(localStorage.getItem('streamToken'));
 const userName = user ? `${user.first_name} ${user.last_name}` : '';
 const todayDate = new Date().toLocaleDateString('en-US', {
   year: 'numeric',
@@ -11,7 +12,31 @@ const todayDate = new Date().toLocaleDateString('en-US', {
   day: 'numeric',
 });
 
-const getTime = (date) => new Date(date).toLocaleTimeString();
+const getTimeAndDate = (date) =>
+  new Date(date).toLocaleString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+  });
+
+const getTime = (date) =>
+  new Date(date).toLocaleTimeString('en-US', {
+    hour: 'numeric',
+    minute: 'numeric',
+  });
+
+// provider info this just dummy data
+const med_provider = {
+  id: 3,
+  first_name: 'PostCare',
+  last_name: 'Provider',
+  email: 'provider@postcare.com',
+  email_verified_at: null,
+  created_at: '2023-02-03T14:51:49.000000Z',
+  updated_at: '2023-02-03T14:51:49.000000Z',
+};
 
 const navLinks = [
   {
@@ -159,8 +184,11 @@ const SERVICE_UNAVAILABLE = 'Service unavailable. Please try again later';
 export {
   AppName,
   user,
+  streamToken,
+  med_provider,
   todayDate,
   getTime,
+  getTimeAndDate,
   userName,
   navLinks,
   navigationLinks,
