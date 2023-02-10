@@ -98,7 +98,7 @@ const Dashboard = () => {
       </section>
       <article className="my-6 xl:ml-6">
         <h2 className="text-xl font-bold">Recovery Instructions</h2>
-        <ul className={'flex justify-center items-center rounded-xl min-h-full w-full'}>
+        <ul className={'flex flex-col justify-center items-center rounded-xl min-h-full w-full'}>
           {recovery.length === 0
             ? 'No tasks for today check next week todos'
             : recovery.map((item) => (
