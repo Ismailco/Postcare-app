@@ -6,7 +6,8 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { email, password } = e.target.elements;
-
+    const error = document.querySelector('.error');
+    error.classList.add('hidden');
     const data = {
       email: email.value,
       password: password.value,
@@ -28,6 +29,7 @@ const Login = () => {
           window.location.href = '/dashboard';
         })
         .catch((err) => {
+          error.classList.remove('hidden');
           throw new Error(err);
         });
     }
@@ -44,6 +46,7 @@ const Login = () => {
   return (
     <div className="flex justify-center items-center w-full py-10">
       <section className="rounded-md flex flex-col border border-2 border-primary md:w-1/2 xl:w-1/3 w-96 m-4 p-4">
+        <p className="error text-center font-bold bg-red-300 rounded-xl p-2 w-full hidden">Invalid Email or Password</p>
         <div className="flex flex-col justify-center items-center my-4">
           <h1 className="font-bold text-2xl mb-1">Login to your account</h1>
           <p>Enter your email and password to login</p>
