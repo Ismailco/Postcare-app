@@ -36,26 +36,6 @@ const Dashboard = () => {
             <p>Mountain Dermatology Center</p>
           </div>
         </article>
-        <article className="flex flex-col md:flex-row justify-start items-center border p-4 rounded-md mb-4">
-          <img className="rounded-md border w-24 border mr-4" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.thefamouspeople.com%2Fprofiles%2Fimages%2Fdoctor-mike-2.jpg&f=1&nofb=1&ipt=9a6b996c8f8b3487f33cab136fe2b0589af7f8c0ba4572856f207311802d0bf8&ipo=images" alt="profile" />
-          <div className="flex flex-col justify-center items-center md:items-start text-center md:text-start md:w-3/4 md:mr-4">
-            {/* The link redirect to the Chat of the specefic provider (change it later) */}
-            <Link to="/messanger/1">
-              <h2 className="text-xl font-bold hover:underline">Jamie Smith, MD</h2>
-            </Link>
-            <p>Mountain Dermatology Center</p>
-          </div>
-        </article>
-        <article className="flex flex-col md:flex-row justify-start items-center border p-4 rounded-md mb-4">
-          <img className="rounded-md border w-24 border mr-4" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.thefamouspeople.com%2Fprofiles%2Fimages%2Fdoctor-mike-2.jpg&f=1&nofb=1&ipt=9a6b996c8f8b3487f33cab136fe2b0589af7f8c0ba4572856f207311802d0bf8&ipo=images" alt="profile" />
-          <div className="flex flex-col justify-center items-center md:items-start text-center md:text-start md:w-3/4 md:mr-4">
-            {/* The link redirect to the Chat of the specefic provider (change it later) */}
-            <Link to="/messanger/1">
-              <h2 className="text-xl font-bold hover:underline">Jamie Smith, MD</h2>
-            </Link>
-            <p>Mountain Dermatology Center</p>
-          </div>
-        </article>
       </section>
       <section className="my-6 xl:ml-6">
         <h2 className="text-xl font-bold my-4">Appointments</h2>
