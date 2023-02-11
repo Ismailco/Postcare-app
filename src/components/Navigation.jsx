@@ -36,7 +36,7 @@ const Navigation = () => {
       </nav>
       <button className={`${open ? 'top-0' : 'top-20 xl:top-0'} h-0 w-0 outline-none relative`} onClick={toggleMenu}>
         <i className={`${open ? 'fas fa-angles-left -left-9 rounded-l-3xl' : 'fas fa-angles-right -left-2 rounded-r-3xl'} duration-300 relative cursor-pointer text-black text-xl p-2 duration-500 hidden xl:block`}></i>
-        <i className={`${open ? 'fas fa-angles-left -left-9 rounded-l-3xl' : 'fas fa-bars text-2xl -left-4 py-1 text-center -top-16 rounded-md bg-primary/90'} relative cursor-pointer xl:text-black p-2 text-xl block xl:hidden`}></i>
+        <i className={`${open ? 'fas fa-angles-left -left-9 rounded-l-3xl' : 'fas fa-bars text-2xl -left-3 py-1 text-center -top-16 rounded-md'} relative cursor-pointer xl:text-black p-2 text-xl flex xl:hidden`}></i>
       </button>
     </div>
   );

@@ -17,7 +17,7 @@ const useAuth = () => {
 function ProtectedRoutes() {
   const isAuth = useAuth();
   return isAuth ? (
-    <div className="flex w-full min-h-screen">
+    <div className="flex w-full min-h-[calc(100vh-80px)]">
       <Navigation />
       <Outlet />
     </div>
