@@ -14,7 +14,6 @@ const Footer = () => {
       return false;
     }
   };
-  console.log(isOnApp());
 
   return (
     <footer className={`${isOnApp() ? 'hidden' : ''} w-full leading-8 p-4 bottom-0 bg-primary text-dark md:text-white font-medium`}>
