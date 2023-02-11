@@ -13,17 +13,17 @@ const todayDate = new Date().toLocaleDateString('en-US', {
 });
 
 const getTimeAndDate = (date) => new Date(date).toLocaleString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    hour: 'numeric',
-    minute: 'numeric',
-  });
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  hour: 'numeric',
+  minute: 'numeric',
+});
 
 const getTime = (date) => new Date(date).toLocaleTimeString('en-US', {
-    hour: 'numeric',
-    minute: 'numeric',
-  });
+  hour: 'numeric',
+  minute: 'numeric',
+});
 
 const navLinks = [
   {
