@@ -1,4 +1,5 @@
 import axios from '../../app/api';
+
 const FETCH_RECOVERY = 'postcare/recovery/FETCH_RECOVERY';
 
 // Action Creators
