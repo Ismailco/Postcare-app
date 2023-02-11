@@ -44,7 +44,7 @@ const Login = () => {
   }, []);
 
   return (
-    <div className="flex justify-center items-center w-full py-10">
+    <div className="flex justify-center items-start w-full py-10 min-h-[calc(100vh-(18rem+81px))]">
       <section className="rounded-md flex flex-col border border-2 border-primary md:w-1/2 xl:w-1/3 w-96 m-4 p-4">
         <p className="error text-center font-bold bg-red-300 rounded-xl p-2 w-full hidden">Invalid Email or Password</p>
         <div className="flex flex-col justify-center items-center my-4">

@@ -10,7 +10,7 @@ const Landing = () => {
     document.title = 'Postcare App';
   }, []);
   return (
-    <main className="w-full">
+    <main className="w-full min-h-[calc(100vh-(18rem+81px))]">
       <section className="w-full flex flex-col-reverse md:flex-row justify-around items-center py-4">
         <div className="w-4/5 my-4 md:w-1/3">
           <h1 className="text-4xl font-bold text-black/80 text-center md:text-left">We make it easier for patients to recover from surgery at home</h1>

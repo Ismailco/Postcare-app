@@ -16,7 +16,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className={`${isOnApp() ? 'hidden' : ''} w-full leading-8 p-4 bottom-0 bg-primary text-dark md:text-white font-medium`}>
+    <footer className={`${isOnApp() ? 'hidden' : ''} w-full leading-8 p-4 bottom-0 bg-primary text-dark md:text-white font-medium min-h-72`}>
       <div className="flex flex-col md:flex-row justify-center items-start">
         <Link to="/" className="w-full">
           <img className="w-36 h-20 ml-5" src={whiteLogo} alt="logo" />
