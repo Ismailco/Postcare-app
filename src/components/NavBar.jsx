@@ -7,8 +7,8 @@ const NavBar = ({ toggleMenu }) => {
   const { pathname } = useLocation();
 
   const isOnApp = () => {
-    const appPaths = ['/dashboard', '/profile', '/messanger', '/messanger/1', '/todo'];
-    if (!appPaths.includes(pathname)) {
+    const appPaths = ['/login', '/signup'];
+    if (appPaths.includes(pathname)) {
       return true;
     } else {
       return false;
