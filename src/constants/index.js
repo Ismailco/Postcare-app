@@ -12,31 +12,18 @@ const todayDate = new Date().toLocaleDateString('en-US', {
   day: 'numeric',
 });
 
-const getTimeAndDate = (date) =>
-  new Date(date).toLocaleString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    hour: 'numeric',
-    minute: 'numeric',
-  });
+const getTimeAndDate = (date) => new Date(date).toLocaleString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  hour: 'numeric',
+  minute: 'numeric',
+});
 
-const getTime = (date) =>
-  new Date(date).toLocaleTimeString('en-US', {
-    hour: 'numeric',
-    minute: 'numeric',
-  });
-
-// provider info this just dummy data
-const med_provider = {
-  id: 3,
-  first_name: 'PostCare',
-  last_name: 'Provider',
-  email: 'provider@postcare.com',
-  email_verified_at: null,
-  created_at: '2023-02-03T14:51:49.000000Z',
-  updated_at: '2023-02-03T14:51:49.000000Z',
-};
+const getTime = (date) => new Date(date).toLocaleTimeString('en-US', {
+  hour: 'numeric',
+  minute: 'numeric',
+});
 
 const navLinks = [
   {
@@ -185,7 +172,6 @@ export {
   AppName,
   user,
   streamToken,
-  med_provider,
   todayDate,
   getTime,
   getTimeAndDate,

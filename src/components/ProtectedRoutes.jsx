@@ -14,11 +14,11 @@ const useAuth = () => {
   return user && user.loggedIn;
 };
 
-function ProtectedRoutes() {
+function ProtectedRoutes({ open, setOpen ,toggleMenu }) {
   const isAuth = useAuth();
   return isAuth ? (
-    <div className="flex w-full min-h-screen">
-      <Navigation />
+    <div className="flex w-full min-h-[calc(100vh-80px)]">
+      <Navigation open={open} setOpen={setOpen} toggleMenu={toggleMenu} />
       <Outlet />
     </div>
   ) : (

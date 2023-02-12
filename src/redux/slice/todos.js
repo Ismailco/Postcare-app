@@ -42,7 +42,7 @@ const initialState = {
   monthly: [],
 };
 
-const todosReducer = (state = initialState, action) => {
+const todosReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case FETCH_TODOS:
       /* eslint-disable no-case-declarations */

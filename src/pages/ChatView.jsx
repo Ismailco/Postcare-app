@@ -44,9 +44,8 @@ const ChatView = () => {
       </div>
     );
   return (
-    // <div className="w-full h-screen">
-    <main className="w-full max-h-screen">
-      <section className="px-9 flex justify-between items-center w-full bg-white h-20 border-b border-dark/20">
+    <main className="w-full">
+      <section className="px-9 flex justify-between items-center w-full bg-white h-16 border-b border-dark/20">
         <Link to="/messanger">
           <i className="fas fa-angle-left fa-xl cursor-pointer active:text-black/40 text-black hover:text-black/70"></i>
         </Link>
@@ -56,17 +55,17 @@ const ChatView = () => {
         </div>
         <i className="far fa-video fa-xl cursor-pointer active:text-black/40 text-black hover:text-black/70 active:text-dark"></i>
       </section>
-      <Chat client={client} theme={'messaging'}>
-          <div className="w-full h-5/6">
-        <Channel channel={channel}>
+      <div className="w-full h-[calc(100vh-150px)]">
+        <Chat client={client}>
+          <Channel channel={channel}>
             <Window>
               <MessageList />
               <MessageInput />
             </Window>
-          <Thread />
-        </Channel>
-          </div>
-      </Chat>
+            <Thread />
+          </Channel>
+        </Chat>
+      </div>
     </main>
   );
 };

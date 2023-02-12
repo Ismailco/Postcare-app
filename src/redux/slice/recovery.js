@@ -1,4 +1,5 @@
 import axios from '../../app/api';
+
 const FETCH_RECOVERY = 'postcare/recovery/FETCH_RECOVERY';
 
 // Action Creators
@@ -29,7 +30,7 @@ const initialState = {
   recovery: [],
 };
 
-const recoveryReducer = (state = initialState, action) => {
+const recoveryReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case FETCH_RECOVERY:
       return {
