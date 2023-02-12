@@ -29,7 +29,7 @@ const initialState = {
   unreadMessages: [],
 };
 
-const messangerReducer = (state = initialState, action) => {
+const messangerReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case GET_ALL_MESSAGES:
       return {
