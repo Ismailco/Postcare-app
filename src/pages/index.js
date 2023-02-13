@@ -7,7 +7,9 @@ import Profile from './Profile';
 import Messanger from './Messanger';
 import ToDoList from './ToDoList';
 import ChatView from './ChatView';
+import Recovery from './Recovery';
 
 export {
-  Login, Signup, Landing, NotFound404, Dashboard, Profile, Messanger, ToDoList, ChatView,
+  Login, Signup, Landing, NotFound404, Dashboard,
+  Profile, Messanger, ToDoList, ChatView, Recovery,
 };
