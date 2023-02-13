@@ -1,9 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import {
-  hero, BG, checkmark, downloads, users, heart, treatment, iphone, customer1, customer2, customer3
-} from '../assets/img';
+import { hero, BG, checkmark, downloads, users, heart, treatment, iphone, customer1, customer2, customer3 } from '../assets/img';
 
 const Landing = () => {
   useEffect(() => {
@@ -57,38 +55,42 @@ const Landing = () => {
           <button className="duration-500 bg-secondary text-white rounded-full py-2 px-4 my-4 self-center md:self-start hover:bg-primary w-fit font-bold">GET STARTED TODAY</button>
           <div className="flex flex-col-reverse md:flex-row-reverse self-start">
             <ul className="py-2 flex">
-              <ul className="py-2">
-                <li className="flex justify-start items-start md:py-10">
-                  <img className="w-10 mr-2 h-10" src={users} alt="users" />
-                  <div>
-                    <p className="font-bold text-xl">1.5M</p>
-                    <p className="text-dark">Current Active Users</p>
-                  </div>
-                </li>
-                <li className="flex justify-start items-start md:py-10">
-                  <img className="w-10 mr-2 h-10" src={heart} alt="heart care" />
-                  <div>
-                    <p className="font-bold text-xl">20+</p>
-                    <p className="text-dark">Country Covered</p>
-                  </div>
-                </li>
-              </ul>
-              <ul className="py-2">
-                <li className="flex justify-start items-start md:py-10 md:ml-10">
-                  <img className="w-10 mr-2 h-10" src={downloads} alt="downloads" />
-                  <div>
-                    <p className="font-bold text-xl">5.5M+</p>
-                    <p className="text-dark">Total Downloads</p>
-                  </div>
-                </li>
-                <li className="flex justify-start items-start md:py-10 md:ml-10">
-                  <img className="w-10 mr-2 h-10" src={treatment} alt="treatment" />
-                  <div>
-                    <p className="font-bold text-xl">200k+</p>
-                    <p className="text-dark">Providers</p>
-                  </div>
-                </li>
-              </ul>
+              <li>
+                <ul className="py-2">
+                  <li className="flex justify-start items-start py-5">
+                    <img className="w-10 mr-2 h-10" src={users} alt="users" />
+                    <div>
+                      <p className="font-bold text-xl">1.5M</p>
+                      <p className="text-dark">Current Active Users</p>
+                    </div>
+                  </li>
+                  <li className="flex justify-start items-start py-5">
+                    <img className="w-10 mr-2 h-10" src={heart} alt="heart care" />
+                    <div>
+                      <p className="font-bold text-xl">20+</p>
+                      <p className="text-dark">Country Covered</p>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <ul className="py-2">
+                  <li className="flex justify-start items-start py-5 md:ml-10">
+                    <img className="w-10 mr-2 h-10" src={downloads} alt="downloads" />
+                    <div>
+                      <p className="font-bold text-xl">5.5M+</p>
+                      <p className="text-dark">Total Downloads</p>
+                    </div>
+                  </li>
+                  <li className="flex justify-start items-start py-5 md:ml-10">
+                    <img className="w-10 mr-2 h-10" src={treatment} alt="treatment" />
+                    <div>
+                      <p className="font-bold text-xl">200k+</p>
+                      <p className="text-dark">Providers</p>
+                    </div>
+                  </li>
+                </ul>
+              </li>
             </ul>
             <div className="w-full h-full rounded-md border border-2 border-dark my-4 flex md:hidden justify-center items-end bg-light/30">
               <img className="h-1/2 w-1/2 pt-10" src={iphone} alt="iphone" />
