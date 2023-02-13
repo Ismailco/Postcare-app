@@ -32,7 +32,7 @@ const Daily = ({ todos }) => {
   return (
     <article className="flex flex-col w-full justify-start items-start h-fit mx-4">
       <h3 className="w-full bg-[#6B7280] py-4 px-6 text-white text-xl font-bold rounded-md my-2 border border-light">{todayDate}</h3>
-      <div className="flex justify-between items-start w-full">
+      <div className="flex flex-col md:flex-row justify-between items-start xl:items-start w-full">
         <div className="w-full">
           <h1 className="text-xl font-bold my-2">Todo List</h1>
           {todos.length === 0
@@ -53,13 +53,13 @@ const Daily = ({ todos }) => {
                 </div>
               ))}
         </div>
-        <div>
+        <div className="flex flex-col items-center w-full md:w-fit">
           <div className="">
-            <Circle className="hidden md:block" percent={`${completStatus().total ? completStatus().complete : '100'}`} strokeWidth={10} style={{ width: 200, margin: 20 }} trailWidth={10} strokeColor={completStatus().total ? completStatus().color[completStatus().complete] : 'green'} />
-            <p className="hidden md:block text-center text-2xl font-bold relative -top-32 left-1.5">{completStatus().total ? `${Math.round(completStatus().complete)}%` : '100%'}</p>
+            <Circle className="" percent={`${completStatus().total ? completStatus().complete : '100'}`} strokeWidth={10} style={{ width: 200, margin: 20 }} trailWidth={10} strokeColor={completStatus().total ? completStatus().color[completStatus().complete] : 'green'} />
+            <p className="text-center text-2xl font-bold relative -top-32 left-1.5">{completStatus().total ? `${Math.round(completStatus().complete)}%` : '100%'}</p>
           </div>
-          <div>
-            <h2 className="text-2xl font-bold">Photo Upload</h2>
+          <h2 className="text-xl self-start font-bold">Photo Upload</h2>
+          <div className="flex flex-col items-start">
             <div className="p-10 my-4 m-auto border border-4 border-dark border-dotted text-center">
               <i className="fas fa-upload text-gray-500" />
               <p className="text-sm font-bold">
