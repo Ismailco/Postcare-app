@@ -54,8 +54,8 @@ const Daily = ({ todos }) => {
               ))}
         </div>
         <div className="flex flex-col items-center w-full md:w-fit">
-          <div className="">
-            <Circle className="" percent={`${completStatus().total ? completStatus().complete : '100'}`} strokeWidth={10} style={{ width: 200, margin: 20 }} trailWidth={10} strokeColor={completStatus().total ? completStatus().color[completStatus().complete] : 'green'} />
+          <div>
+            <Circle percent={`${completStatus().total ? completStatus().complete : '100'}`} strokeWidth={10} style={{ width: 200, margin: 20 }} trailWidth={10} strokeColor={completStatus().total ? completStatus().color[completStatus().complete] : 'green'} />
             <p className="text-center text-2xl font-bold relative -top-32 left-1.5">{completStatus().total ? `${Math.round(completStatus().complete)}%` : '100%'}</p>
           </div>
           <h2 className="text-xl self-start font-bold">Photo Upload</h2>
