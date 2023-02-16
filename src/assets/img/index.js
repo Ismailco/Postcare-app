@@ -16,6 +16,8 @@ import customer1 from './landing/customer1.webp';
 import customer2 from './landing/customer2.webp';
 import customer3 from './landing/customer3.webp';
 import loading from './loading.svg';
+import landingVideo from './landing/landing_video.mp4';
+import landingVideoThumbnail from './landing/landing_video_thu.png';
 
 // import React, { Suspense, lazy } from 'react';
 
@@ -44,5 +46,5 @@ import loading from './loading.svg';
 export {
   N404, offline, profile, whiteLogo, blueLogo, logo,
   hero, checkmark, BG, downloads, heart, treatment,
-  users, iphone, customer1, customer2, customer3, loading,
+  users, iphone, customer1, customer2, customer3, loading, landingVideo, landingVideoThumbnail,
 };

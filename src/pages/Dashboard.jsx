@@ -13,9 +13,13 @@ const Dashboard = () => {
     document.title = 'Dashboard';
     dispatch(getRecovery());
   }, []);
-  
+
+  const handleRecovery = (title, details) => {
+    console.log(title, details);
+  };
+
   return (
-    <main className="flex flex-col p-4 w-full">
+    <main className="main flex flex-col p-4 w-full">
       <section className="my-6 xl:ml-6">
         <h1 className="text-2xl font-bold mb-4">Welcome to Patient Portal Dashboard</h1>
         <p>Your secure, online, healthcare tracking site. Helping you manage your personal health information with your practices, anytime and anywhere.</p>
@@ -83,7 +87,9 @@ const Dashboard = () => {
             ? 'No tasks for today check next week todos'
             : recovery.map((item) => (
                 <li key={item.id} className="w-full my-2 hover:underline bg-light rounded-md text-left border borger-dark font-bold">
-                  <button className="w-full p-4 hover:underline text-left">{item.tracker}</button>
+                  <button className="w-full p-4 hover:underline text-left" onClick={() => handleRecovery(item.tracker, item.details)}>
+                    {item.tracker}
+                  </button>
                 </li>
               ))}
         </ul>

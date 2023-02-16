@@ -1,14 +1,21 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import {
-  hero, BG, checkmark, downloads, users, heart, treatment, iphone, customer1, customer2, customer3
-} from '../assets/img';
+import ReactPlayer from 'react-player';
+import { hero, BG, checkmark, downloads, users, heart, treatment, iphone, customer1, customer2, customer3, landingVideo, landingVideoThumbnail } from '../assets/img';
 
 const Landing = () => {
   useEffect(() => {
     document.title = 'Postcare App';
   }, []);
+
+  const videoStyles = {
+    border: '1px #333399 solid',
+    borderRadius: '10px',
+    overflow: 'hidden',
+    height: 'fit-content',
+  };
+
   return (
     <main className="w-full min-h-[calc(100vh-(18rem+81px))]">
       <section className="w-full flex flex-col-reverse md:flex-row justify-around items-center py-4">
@@ -45,10 +52,10 @@ const Landing = () => {
                 <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
               </li>
             </ul>
-            <img className="w-96 h-full rounded-md border border-2 border-dark my-4 md:hidden" src={BG} alt="landing" />
+            <ReactPlayer className="my-4 md:hidden" url={landingVideo} light={landingVideoThumbnail} playing loop={true} width="100%" height="50vw" style={videoStyles} />
           </div>
         </div>
-        <img className="w-96 xl:w-1/3 h-full rounded-md border border-2 border-dark my-4 hidden md:block" src={BG} alt="landing" />
+        <ReactPlayer className="my-4 hidden md:block" url={landingVideo} light={landingVideoThumbnail} playing loop={true} width="50%" height="50vh" style={videoStyles} />
       </section>
       <section className="w-full flex flex-row justify-around items-center py-4">
         <div className="w-4/5 my-4 md:w-1/3 flex flex-col">
@@ -57,46 +64,50 @@ const Landing = () => {
           <button className="duration-500 bg-secondary text-white rounded-full py-2 px-4 my-4 self-center md:self-start hover:bg-primary w-fit font-bold">GET STARTED TODAY</button>
           <div className="flex flex-col-reverse md:flex-row-reverse self-start">
             <ul className="py-2 flex">
-              <ul className="py-2">
-                <li className="flex justify-start items-start md:py-10">
-                  <img className="w-10 mr-2 h-10" src={users} alt="users" />
-                  <div>
-                    <p className="font-bold text-xl">1.5M</p>
-                    <p className="text-dark">Current Active Users</p>
-                  </div>
-                </li>
-                <li className="flex justify-start items-start md:py-10">
-                  <img className="w-10 mr-2 h-10" src={heart} alt="heart care" />
-                  <div>
-                    <p className="font-bold text-xl">20+</p>
-                    <p className="text-dark">Country Covered</p>
-                  </div>
-                </li>
-              </ul>
-              <ul className="py-2">
-                <li className="flex justify-start items-start md:py-10 md:ml-10">
-                  <img className="w-10 mr-2 h-10" src={downloads} alt="downloads" />
-                  <div>
-                    <p className="font-bold text-xl">5.5M+</p>
-                    <p className="text-dark">Total Downloads</p>
-                  </div>
-                </li>
-                <li className="flex justify-start items-start md:py-10 md:ml-10">
-                  <img className="w-10 mr-2 h-10" src={treatment} alt="treatment" />
-                  <div>
-                    <p className="font-bold text-xl">200k+</p>
-                    <p className="text-dark">Providers</p>
-                  </div>
-                </li>
-              </ul>
+              <li>
+                <ul className="py-2">
+                  <li className="flex justify-start items-start py-5">
+                    <img className="w-10 mr-2 h-10" src={users} alt="users" />
+                    <div>
+                      <p className="font-bold text-xl">1.5M</p>
+                      <p className="text-dark">Current Active Users</p>
+                    </div>
+                  </li>
+                  <li className="flex justify-start items-start py-5">
+                    <img className="w-10 mr-2 h-10" src={heart} alt="heart care" />
+                    <div>
+                      <p className="font-bold text-xl">20+</p>
+                      <p className="text-dark">Country Covered</p>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <ul className="py-2">
+                  <li className="flex justify-start items-start py-5 md:ml-10">
+                    <img className="w-10 mr-2 h-10" src={downloads} alt="downloads" />
+                    <div>
+                      <p className="font-bold text-xl">5.5M+</p>
+                      <p className="text-dark">Total Downloads</p>
+                    </div>
+                  </li>
+                  <li className="flex justify-start items-start py-5 md:ml-10">
+                    <img className="w-10 mr-2 h-10" src={treatment} alt="treatment" />
+                    <div>
+                      <p className="font-bold text-xl">200k+</p>
+                      <p className="text-dark">Providers</p>
+                    </div>
+                  </li>
+                </ul>
+              </li>
             </ul>
-            <div className="w-full h-full rounded-md border border-2 border-dark my-4 flex md:hidden justify-center items-end bg-light/30">
-              <img className="h-1/2 w-1/2 pt-10" src={iphone} alt="iphone" />
+            <div className="w-full h-full overflow-hidden rounded-md border border-2 border-dark my-4 flex md:hidden justify-center items-end bg-light/30">
+              <img className="h-1/2 w-4/5 top-32 relative" src={iphone} alt="iphone" />
             </div>
           </div>
         </div>
-        <div className="w-1/3 h-96 rounded-md border border-2 border-dark my-4 hidden md:flex justify-center items-end bg-light/30">
-          <img className="h-2/3 w-fit" src={iphone} alt="iphone" />
+        <div className="w-1/3 h-96 overflow-hidden rounded-md border border-2 border-dark my-4 hidden md:flex justify-center items-end bg-light/30">
+          <img className="h-full w-fit top-32 relative" src={iphone} alt="iphone" />
         </div>
       </section>
       <section className="w-full flex flex-col justify-around items-center py-4 bg-light">

@@ -56,7 +56,7 @@ const Weekly = ({ todos }) => {
         : Object.entries(groupedTodos).map(([date, tasks]) => (
             <React.Fragment key={`${date} weekly`}>
               <h3 className="w-full bg-[#6B7280] py-4 px-6 text-white text-xl font-bold rounded-md my-2 border border-light">{date}</h3>
-              <div className="flex justify-between items-start w-full">
+              <div className="flex flex-col md:flex-row justify-between items-start w-full">
                 <div className="w-full">
                   {tasks.map((todo) => (
                     <div key={`${todo.id} weekly`} className="flex w-full mb-2 items-start justify-center">
@@ -74,29 +74,29 @@ const Weekly = ({ todos }) => {
                     </div>
                   ))}
                 </div>
-                <div className="">
-                  <div className="">
-                    <Circle className="hidden md:block" percent={`${completStatus(tasks).total ? completStatus(tasks).complete : '100'}`} strokeWidth={10} style={{ width: 200, margin: 20 }} trailWidth={10} strokeColor={completStatus(tasks).total ? completStatus(tasks).color[completStatus(tasks).complete] : 'green'} />
-                    <p className="hidden md:block text-center text-2xl font-bold relative -top-32 left-1.5">{completStatus(tasks).total ? `${Math.round(completStatus(tasks).complete)}%` : '100%'}</p>
-                  </div>
+                <div className="flex flex-col items-center w-full md:w-fit">
                   <div>
-                    <h2 className="text-2xl font-bold">Photo Upload</h2>
-                    <div className="p-10 my-4 m-auto border border-4 border-dark border-dotted text-center">
-                      <i className="fas fa-upload text-gray-500" />
-                      <p className="text-sm font-bold">
-                        Drag and Drop here
-                        <br />
-                        or
-                      </p>
-                      <button type="button" className="text-blue-600 font-bold">
-                        Upload
-                      </button>
-                    </div>
-                    <p className="text-center text-sm">Accepted File Types: jpeg, png only</p>
-                    <button type="button" className="bg-dark text-white font-bold py-2 px-4 rounded w-full my-4">
-                      UPLOAD
+                    <Circle percent={`${completStatus(tasks).total ? completStatus(tasks).complete : '100'}`} strokeWidth={10} style={{ width: 200, margin: 20 }} trailWidth={10} strokeColor={completStatus(tasks).total ? completStatus(tasks).color[completStatus(tasks).complete] : 'green'} />
+                    <p className="text-center text-2xl font-bold relative -top-32 left-1.5">{completStatus(tasks).total ? `${Math.round(completStatus(tasks).complete)}%` : '100%'}</p>
+                  </div>
+                  {/* <div> */}
+                  <h2 className="text-xl self-start font-bold">Photo Upload</h2>
+                  <div className="p-10 my-4 m-auto border border-4 border-dark border-dotted text-center">
+                    <i className="fas fa-upload text-gray-500" />
+                    <p className="text-sm font-bold">
+                      Drag and Drop here
+                      <br />
+                      or
+                    </p>
+                    <button type="button" className="text-blue-600 font-bold">
+                      Upload
                     </button>
                   </div>
+                  <p className="text-center text-sm">Accepted File Types: jpeg, png only</p>
+                  <button type="button" className="bg-dark text-white font-bold py-2 px-4 rounded w-full my-4">
+                    UPLOAD
+                  </button>
+                  {/* </div> */}
                 </div>
               </div>
               <h2 className="text-xl font-bold my-4">Photo Gallery</h2>
